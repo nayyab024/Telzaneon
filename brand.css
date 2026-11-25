@@ -1,0 +1,20 @@
+/* Telza brand palette: black, teal #14C9B8 and neon green #39FF14.
+   The logo files are already in brand colours, so no recolour filter. */
+:root,.light-section{
+ --black:#000000;--bg:#000000;--bg-alt:#050909;--surface:#0b1113;--surface-2:#111a1c;
+ --teal:#14c9b8;--green:#39ff14;--teal-deep:#0f766e;--mint:#39ff14;--accent:#14c9b8;
+ --text:#ffffff;--muted:rgba(255,255,255,.66);--dim:rgba(255,255,255,.44);
+ --border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);
+ --grad:linear-gradient(135deg,#14c9b8 0%,#39ff14 100%);
+ --text-grad:linear-gradient(110deg,#14c9b8,#39ff14,#14c9b8);
+ --sculpture-color:#39ff14;--sculpture-rim:#14c9b8
+}
+body{background:var(--bg);color:var(--text)}
+::selection{background:var(--teal);color:#000}
+
+/* Highlighted words in headings: the teal-green gradient, as on telza.ai. */
+:is(h1,h2) em,.hero-copy em,.page-hero h1 em{background:var(--text-grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* Primary buttons: teal → green → teal with a soft teal glow. */
+.button{background:linear-gradient(110deg,#14c9b8,#39ff14 55%,#14c9b8);background-size:200% 100%;color:#000;box-shadow:0 8px 30px -10px rgba(20,201,184,.7);transition:box-shadow .2s,transform .2s,background-position .5s}
+.button:hover{background-position:100% 0;box-shadow:0 10px 36px -8px rgba(57,255,20,.45)}

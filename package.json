@@ -1,0 +1,13 @@
+{
+  "name": "telza-navy-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Telza AI website: 3D scroll homepage with the Voice Agent, Fillo and WhatsApp stories, booking and live demo pages.",
+  "scripts": {
+    "start": "node server.cjs",
+    "dev": "node server.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
