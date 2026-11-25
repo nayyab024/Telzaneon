@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    image: telza-website:latest
+    container_name: telza-website
+    restart: unless-stopped
+    ports:
+      - "${TELZA_PORT:-4879}:4879"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4879
+      TELZA_DATA_DIR: /app/data
+      # Optional: forward every form submission as JSON (Zapier, Make, n8n, Slack, CRM).
+      TELZA_WEBHOOK_URL: ${TELZA_WEBHOOK_URL:-}
+    volumes:
+      # Booking and demo requests persist here across restarts and rebuilds.
+      - telza-data:/app/data
+
+volumes:
+  telza-data:
