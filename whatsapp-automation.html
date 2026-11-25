@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Automation — AI Chat Agents for WhatsApp | Telza AI</title>
+  <meta name="description" content="Telza WhatsApp Automation: AI that answers customer messages instantly, qualifies leads, sends opt-in broadcasts, reminders and order updates, hands conversations to your team and keeps your CRM in sync.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products/style.css">
+  <link rel="stylesheet" href="products/whatsapp.css">
+  <link rel="stylesheet" href="products/chrome.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="site.js" defer></script>
+  <script src="products/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="products/whatsapp.js" defer></script>
+</head>
+<body class="page-whatsapp product-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs><filter id="brand-palette" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.762626 0.237374 0.000000 0.000000 0.000000 0.444444 0.555556 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000"/></filter></defs></svg>
+
+  <!-- ============ Icon sprite ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-phone-in" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2v6h6M22 2l-6 6"/></symbol>
+    <symbol id="i-phone-out" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2h6v6M16 8l6-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0V8zM12 18v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2V10z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-7 10 7z"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 20V6M2 14h20v6M22 14v-3a3 3 0 0 0-3-3h-8v6"/><circle cx="6.5" cy="10.5" r="1.5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14zM20 17v4H6.5a2.5 2.5 0 0 1 0-5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></symbol>
+    <symbol id="i-voicemail" viewBox="0 0 24 24"><circle cx="5.5" cy="11.5" r="4.5"/><circle cx="18.5" cy="11.5" r="4.5"/><path d="M5.5 16h13"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="header">
+ <a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a>
+ <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-menu nav-products"><a href="index.html#family">Products</a><div class="nav-dropdown"><a href="fillo.html">Fillo</a><a href="ai-voice-agent.html">AI Voice Agent</a><a href="inbound-calling.html">Inbound Call</a><a href="outbound-calling.html">Outbound Call</a><a href="whatsapp-automation.html" aria-current="page">WhatsApp Automation</a><a href="ecommerce-ai-chatbot.html">E-commerce AI Chatbot</a><a href="ai-automation.html">Custom AI Automation</a></div></div>
+  <div class="nav-menu nav-industries"><button class="nav-trigger" type="button" aria-expanded="false">Industries</button><div class="nav-dropdown"><a href="industries/healthcare.html">Healthcare</a><a href="industries/real-estate.html">Real Estate</a><a href="industries/ecommerce.html">E-commerce</a><a href="industries/finance.html">Finance</a><a href="industries/hospitality.html">Hospitality</a><a href="industries/logistics.html">Logistics</a></div></div>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#approach">Our approach</a>
+  <a href="demo.html">Live demo</a>
+  <a class="nav-book" href="book.html">Book a meeting</a>
+ </nav>
+ <div class="header-actions">
+  <a class="button small" href="book.html">Book a meeting <span>↗</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><i></i><i></i></button>
+ </div>
+</header>
+
+  <main id="main">
+
+    <!-- Same layout, components and motion as the Inbound / Outbound Calling pages (inbound.css / inbound.js mirrored as whatsapp.*).
+         Content: Telza's own WhatsApp descriptions (homepage WhatsApp section, product card, FAQ and feature list).
+         waaru.app was used for topic research only. Chats, campaigns and dashboards shown are illustrative. -->
+
+    <!-- ============ Hero ============ -->
+    <section class="wa-hero" id="hero" aria-labelledby="wa-hero-title">
+      <div class="wa-hero__panel" aria-hidden="true"><span class="wa-hero__stripes"></span><span class="wa-hero__haze"></span></div>
+
+      <div class="container wa-hero__copy">
+        <h1 class="wa-hero__title" id="wa-hero-title">
+          <span class="wa-line"><span class="wa-line__in">The WhatsApp AI that</span></span>
+          <span class="wa-line"><span class="wa-line__in"><em>replies</em>, sells and <em>follows up</em></span></span>
+        </h1>
+        <p class="wa-hero__lead">Telza answers your customers on WhatsApp the moment they message, qualifies leads, shares order updates and payment links, sends opt-in broadcasts and reminders, and hands the chat to your team when a person should step in.</p>
+        <div class="wa-hero__cta">
+          <a href="#cta" class="wa-btn wa-btn--solid">Start with WhatsApp</a>
+          <a href="#journey" class="wa-btn wa-btn--ghost">See a chat in action</a>
+        </div>
+      </div>
+
+      <!-- Hero visual (illustrative): a WhatsApp conversation handled by Telza, with automation cards around it -->
+      <div class="wa-scene wa-scene--chat" role="img" aria-label="Illustration: a WhatsApp chat in which Telza AI answers an order question with quick-reply buttons, surrounded by cards for a broadcast campaign, a qualified lead, a CRM update and a handoff to the team">
+        <span class="wa-link wa-link--l" aria-hidden="true"></span><span class="wa-link wa-link--r" aria-hidden="true"></span>
+        <div class="wa-card wa-card--1" aria-hidden="true"><span class="wa-card__k"><svg class="icon"><use href="#i-chat"/></svg>Broadcast campaign</span><b>Spring offer · opted-in contacts</b><div class="wa-card__row"><span class="is-on">Sent</span><span>Delivered</span><span>Replies</span></div></div>
+        <div class="wa-card wa-card--2 wa-card--dark" aria-hidden="true"><span class="wa-card__k"><svg class="icon"><use href="#i-target"/></svg>Lead qualified</span><b>Priya S. · interested in a demo</b><small>Budget and timeline captured in chat</small></div>
+        <div class="wa-card wa-card--3 wa-card--dark" aria-hidden="true"><span class="wa-card__k"><svg class="icon"><use href="#i-database"/></svg>CRM updated</span><b>Sara L. · order #4821</b><small>Conversation and address change synced</small></div>
+        <div class="wa-card wa-card--4" aria-hidden="true"><span class="wa-card__k"><svg class="icon"><use href="#i-users"/></svg>Handed to your team</span><b>Refund request → Support</b><small>Full chat history included</small></div>
+        <div class="wa-hphone" aria-hidden="true">
+          <div class="wa-hphone__screen">
+            <div class="wa-hphone__bar"><span class="wa-hphone__av"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" decoding="async"></span><span><b>Telza Store</b><small>AI assistant · online</small></span></div>
+            <div class="wa-thread">
+              <div class="wa-b wa-b--in">Hi! Has my order #4821 shipped yet?<small>10:02</small></div>
+              <div class="wa-b wa-b--out">Hi Sara 👋 Yes, it shipped this morning and arrives Thursday.<small>10:02</small></div>
+              <div class="wa-qr"><span>Track order</span><span>Change address</span></div>
+              <div class="wa-b wa-b--in">Can I change the delivery address?<small>10:03</small></div>
+              <div class="wa-typing"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Intro ============ -->
+    <section class="wa-light wa-intro" aria-labelledby="wa-intro-title">
+      <div class="container">
+        <span class="wa-kicker">WhatsApp Automation</span>
+        <h2 class="wa-intro__title" id="wa-intro-title">
+          <span class="wa-line"><span class="wa-line__in">Every message answered.</span></span>
+          <span class="wa-line"><span class="wa-line__in">Every chat <mark class="wa-mark">moving forward.</mark></span></span>
+        </h2>
+        <p class="wa-intro__lead">WhatsApp Automation is Telza's AI for the chat app your customers already open every day. It answers questions, captures leads, shares updates and runs your supported workflows inside the conversation, and it keeps one shared context with your calls, so customers never have to start over.</p>
+        <ul class="wa-chips" aria-label="What the WhatsApp agent does">
+          <li><svg class="icon"><use href="#i-chat"/></svg>Answers messages instantly</li>
+          <li><svg class="icon"><use href="#i-target"/></svg>Qualifies leads</li>
+          <li><svg class="icon"><use href="#i-spark"/></svg>Sends opt-in broadcasts</li>
+          <li><svg class="icon"><use href="#i-repeat"/></svg>Follows up and reminds</li>
+          <li><svg class="icon"><use href="#i-users"/></svg>Hands off to your team</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Why: what happens to WhatsApp messages without Telza ============ -->
+    <section class="wa-why" aria-labelledby="wa-why-title">
+      <div class="container wa-why__grid">
+        <div class="wa-phone" aria-hidden="true">
+          <span class="wa-phone__notch"></span>
+          <span class="wa-phone__label">Your WhatsApp inbox</span>
+          <div class="wa-note" data-wa-note>
+            <span class="wa-note__ic"><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span class="wa-note__txt wa-note__before"><b>12 unread chats</b><small>Waiting since last night</small></span>
+            <span class="wa-note__txt wa-note__after"><b>All answered</b><small>Replied the moment they arrived</small></span>
+          </div>
+          <div class="wa-note" data-wa-note>
+            <span class="wa-note__ic"><svg class="icon"><use href="#i-target"/></svg></span>
+            <span class="wa-note__txt wa-note__before"><b>Lead went quiet</b><small>Nobody followed up</small></span>
+            <span class="wa-note__txt wa-note__after"><b>Lead followed up</b><small>Automatic follow-up sent</small></span>
+          </div>
+          <div class="wa-note" data-wa-note>
+            <span class="wa-note__ic"><svg class="icon"><use href="#i-cart"/></svg></span>
+            <span class="wa-note__txt wa-note__before"><b>"Where is my order?"</b><small>Asked three times</small></span>
+            <span class="wa-note__txt wa-note__after"><b>Order update shared</b><small>Tracking sent in the chat</small></span>
+          </div>
+        </div>
+        <div class="wa-why__copy">
+          <span class="wa-kicker">Why it matters</span>
+          <h2 class="wa-h2" id="wa-why-title">On WhatsApp, a slow reply is a lost customer</h2>
+          <ol class="wa-why__list">
+            <li data-wa-why><span class="wa-why__num">01</span><div><h3>Customers expect an instant answer</h3><p>Messages arrive at all hours and pile up when your team is busy. Telza replies the moment a message comes in.</p></div></li>
+            <li data-wa-why><span class="wa-why__num">02</span><div><h3>Leads go cold in the inbox</h3><p>Enquiries that nobody follows up on never become customers. Telza asks your qualifying questions and follows up automatically.</p></div></li>
+            <li data-wa-why><span class="wa-why__num">03</span><div><h3>The same questions, every day</h3><p>Order status, bookings and opening hours fill your team's day. Telza handles the routine and passes the rest to a person.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Features ============ -->
+    <section class="wa-light wa-features" id="features" aria-labelledby="wa-features-title">
+      <div class="container">
+        <div class="wa-head wa-head--center">
+          <span class="wa-kicker">Inside WhatsApp Automation</span>
+          <h2 class="wa-h2" id="wa-features-title">Everything your WhatsApp agent handles</h2>
+        </div>
+        <div class="wa-features__grid">
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--chat2" aria-hidden="true"><span class="is-q">Are you open on Sunday?</span><span class="is-a">Yes, from 10 to 4. Want to book a visit?</span><span class="is-qr"><b>Book now</b><b>See location</b></span></div>
+            <h3>AI chatbot with smart replies</h3><p>Natural answers in the chat, with quick-reply buttons, rich media and catalogs so customers can act in a tap.</p>
+          </article>
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--qualify" aria-hidden="true"><span>Interested in<em>Demo</em></span><span>Timeline<em>This month</em></span><span class="is-hot">Qualified lead → sales</span></div>
+            <h3>Lead generation and qualification</h3><p>Telza asks your qualifying questions in the chat and passes ready leads to your sales team.</p>
+          </article>
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--broadcast" aria-hidden="true"><span class="is-src"><svg class="icon"><use href="#i-spark"/></svg></span><span class="is-seg">New customers<em style="--d:0s">Sent</em></span><span class="is-seg">Repeat buyers<em style="--d:.4s">Sent</em></span><span class="is-seg">Event sign-ups<em style="--d:.8s">Sent</em></span></div>
+            <h3>Broadcast campaigns</h3><p>Opt-in broadcasts with smart segmentation, so each group gets the message that fits them.</p>
+          </article>
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--remind" aria-hidden="true"><span><svg class="icon"><use href="#i-calendar"/></svg>Appointment reminder<em>Tomorrow</em></span><span><svg class="icon"><use href="#i-repeat"/></svg>Follow-up sent<em>Day 3</em></span><span><svg class="icon"><use href="#i-bell"/></svg>Payment reminder<em>Due Fri</em></span></div>
+            <h3>Automated follow-ups and notifications</h3><p>Reminders, follow-up sequences and notifications go out on schedule, and feel personal at any volume.</p>
+          </article>
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--order" aria-hidden="true"><span class="is-prod"><i></i><span><b>Order #4821</b><small>Shipped · arrives Thu</small></span><em>Tracked</em></span><span class="is-btns"><b>Track order</b><b>Pay now</b></span></div>
+            <h3>E-commerce order updates</h3><p>Order tracking, delivery changes and payment links shared right inside the conversation.</p>
+          </article>
+          <article class="wa-feature">
+            <div class="wa-vis wa-vis--crm" aria-hidden="true"><span class="is-node">WhatsApp</span><span class="is-arrow">→</span><span class="is-node is-mid">Telza</span><span class="is-out">CRM updated · workflow triggered</span></div>
+            <h3>CRM and workflow automation</h3><p>Contacts, notes and outcomes are written back to your CRM, and conversations can trigger your supported workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Chat journey (pinned on desktop) ============ -->
+    <section class="wa-journey" id="journey" aria-labelledby="wa-journey-title">
+      <div class="wa-journey__stage">
+        <div class="container wa-journey__grid">
+          <div class="wa-journey__copy">
+            <span class="wa-kicker">The chat journey</span>
+            <h2 class="wa-h2" id="wa-journey-title">What happens when a customer messages you</h2>
+            <ol class="wa-steps">
+              <li class="wa-step" data-wa-step><span class="wa-step__num">01</span><div><h3>A message arrives</h3><p>A customer writes to your business on WhatsApp, at any hour.</p></div></li>
+              <li class="wa-step" data-wa-step><span class="wa-step__num">02</span><div><h3>Telza replies instantly</h3><p>The AI understands the question and answers, with quick-reply buttons to make the next step easy.</p></div></li>
+              <li class="wa-step" data-wa-step><span class="wa-step__num">03</span><div><h3>Details are collected</h3><p>Telza asks for what your process needs, such as an order number or a preferred time.</p></div></li>
+              <li class="wa-step" data-wa-step><span class="wa-step__num">04</span><div><h3>The task gets done</h3><p>An order update, a booking or a payment link is shared in the chat, and your CRM is updated.</p></div></li>
+              <li class="wa-step" data-wa-step><span class="wa-step__num">05</span><div><h3>Resolved, or handed to your team</h3><p>When a person should step in, Telza passes the chat to your team with the full conversation.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="wa-call" aria-hidden="true">
+            <div class="wa-call__head">
+              <span class="wa-call__avatar"><svg class="icon"><use href="#i-chat"/></svg></span>
+              <div class="wa-call__who"><b>WhatsApp · Sara L.</b><small data-wa-status>Resolved · CRM updated</small></div>
+              <span class="wa-call__timer" data-wa-timer>10:04</span>
+            </div>
+            <div class="wa-chathead"><span data-wa-tag="1">Message</span><span data-wa-tag="2">AI reply</span><span data-wa-tag="3">Details</span><span data-wa-tag="4">Action</span><span data-wa-tag="5">Done</span></div>
+            <ul class="wa-call__log">
+              <li class="wa-msg wa-msg--caller" data-wa-msg="1">Hi! Has my order #4821 shipped yet?</li>
+              <li class="wa-msg wa-msg--ai" data-wa-msg="2">Hi Sara 👋 Yes, it shipped this morning and arrives Thursday.</li>
+              <li class="wa-msg wa-msg--qr" data-wa-msg="2"><span>Track order</span><span>Change address</span></li>
+              <li class="wa-msg wa-msg--caller" data-wa-msg="3">Can I change the delivery address?</li>
+              <li class="wa-msg wa-msg--ai" data-wa-msg="3">Sure! Share the new address and I'll update it with the courier right away.</li>
+              <li class="wa-msg wa-msg--card" data-wa-msg="4"><b>Delivery address updated</b><small>Order #4821 · arrives Thursday</small><em>Track order</em></li>
+              <li class="wa-msg wa-msg--event" data-wa-msg="5"><svg class="icon"><use href="#i-database"/></svg>Resolved · conversation logged to CRM</li>
+            </ul>
+            <span class="wa-call__note">Illustrative chat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Benefits ============ -->
+    <section class="wa-benefits" aria-labelledby="wa-benefits-title">
+      <div class="container">
+        <div class="wa-head">
+          <span class="wa-kicker">The benefits</span>
+          <h2 class="wa-h2" id="wa-benefits-title">Faster replies. More sales. Less inbox work.</h2>
+        </div>
+        <div class="wa-benefits__grid">
+          <article class="wa-benefit"><span class="wa-benefit__ic"><svg class="icon"><use href="#i-bolt"/></svg></span><h3>Answers in seconds</h3><p>Customers get a reply the moment they message, not when someone frees up.</p></article>
+          <article class="wa-benefit"><span class="wa-benefit__ic"><svg class="icon"><use href="#i-target"/></svg></span><h3>More leads, better qualified</h3><p>Every enquiry is captured, qualified in the chat and followed up automatically.</p></article>
+          <article class="wa-benefit"><span class="wa-benefit__ic"><svg class="icon"><use href="#i-cart"/></svg></span><h3>From hello to checkout</h3><p>Order updates, bookings and payment links happen in the app your customers already use.</p></article>
+          <article class="wa-benefit"><span class="wa-benefit__ic"><svg class="icon"><use href="#i-users"/></svg></span><h3>Your team on what matters</h3><p>Routine chats are handled, so people spend their time on the conversations that need them.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AI + your team ============ -->
+    <section class="wa-handoff" aria-labelledby="wa-handoff-title">
+      <div class="container">
+        <div class="wa-head wa-head--center">
+          <span class="wa-kicker">AI and your team</span>
+          <h2 class="wa-h2" id="wa-handoff-title">Telza handles the chats. <mark class="wa-mark">Your team takes the rest.</mark></h2>
+        </div>
+        <div class="wa-relay">
+          <div class="wa-lane wa-lane--ai">
+            <div class="wa-lane__head"><span class="wa-lane__mark"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>Telza AI</b></div>
+            <ul>
+              <li>Replies to every message instantly</li>
+              <li>Shares order updates and payment links</li>
+              <li>Qualifies leads in the chat</li>
+              <li>Sends follow-ups and reminders</li>
+            </ul>
+          </div>
+          <div class="wa-relay__track" aria-hidden="true">
+            <span class="wa-relay__line"></span>
+            <span class="wa-relay__token" data-wa-token><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span class="wa-relay__label">Hands over the chat with full history</span>
+          </div>
+          <div class="wa-lane wa-lane--team">
+            <div class="wa-lane__head"><span class="wa-lane__mark wa-lane__mark--team"><svg class="icon"><use href="#i-users"/></svg></span><b>Your team</b></div>
+            <ul>
+              <li>Takes over chats that need a person</li>
+              <li>Handles exceptions and approvals</li>
+              <li>Picks up qualified leads ready to buy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Use cases (interactive tabs) ============ -->
+    <section class="wa-light wa-uses" aria-labelledby="wa-uses-title">
+      <div class="container">
+        <div class="wa-head wa-head--center">
+          <span class="wa-kicker">Use cases</span>
+          <h2 class="wa-h2" id="wa-uses-title">The conversations Telza is built to handle</h2>
+        </div>
+        <div class="wa-uses__box" data-wa-uses>
+          <div class="wa-uses__tabs" role="tablist" aria-label="WhatsApp automation use cases">
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-1" aria-controls="wa-use-1" aria-selected="true" tabindex="0"><svg class="icon"><use href="#i-cart"/></svg>Order updates</button>
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-2" aria-controls="wa-use-2" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-calendar"/></svg>Bookings &amp; reminders</button>
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-3" aria-controls="wa-use-3" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-target"/></svg>Lead qualification</button>
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-4" aria-controls="wa-use-4" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-spark"/></svg>Broadcast replies</button>
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-5" aria-controls="wa-use-5" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-chat"/></svg>Customer support</button>
+              <button type="button" class="wa-utab" role="tab" id="wa-utab-6" aria-controls="wa-use-6" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-bank"/></svg>Payment links</button>
+          </div>
+          <div class="wa-uses__panels">
+            <article class="wa-use" role="tabpanel" id="wa-use-1" aria-labelledby="wa-utab-1">
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;Hi, where is my order? It was supposed to arrive today.&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Looks up the order the customer means</li>
+                <li><span>Then</span>Shares tracking and delivery details, or routes exceptions to your team</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Order update shared in the chat</div>
+            </article>
+            <article class="wa-use" role="tabpanel" id="wa-use-2" aria-labelledby="wa-utab-2" hidden>
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;Can I move my appointment to Saturday?&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Offers the available times as quick replies</li>
+                <li><span>Then</span>Confirms the change where your workflow allows, then reminds them before the visit</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Booking confirmed and reminded</div>
+            </article>
+            <article class="wa-use" role="tabpanel" id="wa-use-3" aria-labelledby="wa-utab-3" hidden>
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;Hi, I saw your ad. How much does it cost?&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Answers the question and asks your qualifying questions</li>
+                <li><span>Then</span>Passes qualified leads to sales with the chat attached</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Lead qualified and routed</div>
+            </article>
+            <article class="wa-use" role="tabpanel" id="wa-use-4" aria-labelledby="wa-utab-4" hidden>
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;Yes, I&rsquo;m interested in the offer!&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Picks up the reply to your opt-in broadcast</li>
+                <li><span>Then</span>Continues the conversation and starts the matching workflow</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Campaign reply followed up</div>
+            </article>
+            <article class="wa-use" role="tabpanel" id="wa-use-5" aria-labelledby="wa-utab-5" hidden>
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;My product arrived damaged, what can I do?&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Answers from your approved business information</li>
+                <li><span>Then</span>Hands the chat to your team when a decision is needed</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Resolved or handed over</div>
+            </article>
+            <article class="wa-use" role="tabpanel" id="wa-use-6" aria-labelledby="wa-utab-6" hidden>
+              <div class="wa-use__caller"><span class="wa-use__who">Customer on WhatsApp</span><p>&ldquo;Can I pay for my order here?&rdquo;</p></div>
+              <ol class="wa-use__flow">
+                <li><span>Telza</span>Confirms the order and amount</li>
+                <li><span>Then</span>Shares the payment link right in the chat</li>
+              </ol>
+              <div class="wa-use__out"><svg class="icon"><use href="#i-check"/></svg>Payment link sent</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Integrations ============ -->
+    <section class="wa-integrations" aria-labelledby="wa-int-title">
+      <div class="container wa-int__grid">
+        <div class="wa-int__copy">
+          <span class="wa-kicker">Integrations</span>
+          <h2 class="wa-h2" id="wa-int-title">Connected to WhatsApp Business and the systems you use</h2>
+          <p class="wa-int__lead">Telza connects with WhatsApp Business and with supported CRMs, calendars, APIs and other business systems, depending on your workflow.</p>
+          <p class="wa-int__note">Using something else? We'll review the integration requirements with you during the demo.</p>
+        </div>
+        <div class="wa-orbit" aria-label="Connected platforms and systems">
+          <span class="wa-orbit__ring" aria-hidden="true"></span><span class="wa-orbit__ring wa-orbit__ring--2" aria-hidden="true"></span>
+          <span class="wa-orbit__core" aria-hidden="true"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+          <ul class="wa-orbit__nodes">
+            <li style="--i:0">WhatsApp Business</li><li style="--i:1">Twilio</li><li style="--i:2">Zapier</li><li style="--i:3">Bitrix</li><li style="--i:4">Your CRM</li><li style="--i:5">Calendars</li><li style="--i:6">APIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (answers as published on the Telza homepage) ============ -->
+    <section class="section wa-faq" id="faq">
+      <div class="container faq">
+        <div class="section-head section-head--left reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">Questions about WhatsApp Automation</h2>
+          <p class="section-lead">Something else on your mind? <a href="#cta" class="link">Talk to our team</a>.</p>
+        </div>
+        <div class="accordion accordion--rich reveal" data-delay="1" data-accordion>
+          <div class="acc-item is-open">
+            <button type="button" class="acc-trigger" aria-expanded="true" aria-controls="wafaq-1" id="wafaq-1-btn">Which Telza AI product is right for my business?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="wafaq-1" role="region" aria-labelledby="wafaq-1-btn"><div>
+              <p>That depends on the work you want to automate.</p>
+              <p><strong>Fillo</strong> supports lead operations and processing.</p>
+              <p><strong>Telza Voice</strong> handles inbound and outbound phone conversations.</p>
+              <p><strong>WhatsApp Automation</strong> handles messaging, follow-up, qualification, reminders, and supported customer workflows.</p>
+              <p><strong>E-commerce AI</strong> helps online stores with product questions, customer support, and shopping conversations.</p>
+              <p>For workflows that do not fit an existing product, Telza can also build <strong>custom AI automation</strong>.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="wafaq-2" id="wafaq-2-btn">Can Telza work with the systems we already use?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="wafaq-2" role="region" aria-labelledby="wafaq-2-btn"><div>
+              <p>Telza can connect with supported CRMs, dialers, calendars, APIs, and other business systems depending on the product and workflow.</p>
+              <p>Supported platforms:<br><strong>VICIdial</strong> · <strong>Telnyx</strong> · <strong>Vonage</strong> · <strong>Signalwire</strong> · <strong>Bitrix</strong> · <strong>Zapier</strong> · <strong>Twilio</strong></p>
+              <p>If your system is not already supported, we can review the integration requirements during the demo.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="wafaq-3" id="wafaq-3-btn">Do we need to change our existing scripts and processes?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="wafaq-3" role="region" aria-labelledby="wafaq-3-btn"><div>
+              <p>Not necessarily.</p>
+              <p>Your existing scripts, qualification criteria, business rules, and workflows can be used as the starting point.</p>
+              <p>We then adapt them for AI so the agent can respond to different answers, conditions, objections, and actions instead of simply reading a fixed script line by line.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="wafaq-4" id="wafaq-4-btn">How long does it take to get started?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="wafaq-4" role="region" aria-labelledby="wafaq-4-btn"><div>
+              <p>Implementation depends on the product, workflow complexity, integrations, campaign logic, and testing required.</p>
+              <p>During the initial review, we map the workflow first and then give you a realistic implementation plan based on your setup.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="wafaq-5" id="wafaq-5-btn">Can we see Telza AI working before we buy?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="wafaq-5" role="region" aria-labelledby="wafaq-5-btn"><div>
+              <p>Yes.</p>
+              <p>You can request a demo based on the product or workflow you are interested in, including <strong>Voice AI</strong>, <strong>Fillo</strong>, <strong>WhatsApp Automation</strong>, and <strong>E-commerce AI</strong>.</p>
+              <p>For Voice AI, we can also provide relevant call examples so you can hear how Telza handles real conversation scenarios.</p>
+              <p class="acc-cta"><a href="#cta" class="btn btn--primary btn--sm">Request a Demo <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA (same component as the homepage's "Get started" CTA; WhatsApp copy) ============ -->
+    <section class="section section--cta" id="cta">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__grid" aria-hidden="true"></div>
+          <span class="eyebrow">Get started with WhatsApp Automation</span>
+          <h2>Let Telza answer your next WhatsApp message</h2>
+          <p>Book a walkthrough and we'll show you how Telza handles your WhatsApp conversations, from first question to order update, around your own workflow.</p>
+          <form class="cta-form" action="book.html" method="get">
+            <label class="sr-only" for="cta-email">Work email</label>
+            <input type="email" id="cta-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <button type="submit" class="btn btn--primary">Book a demo <svg class="icon"><use href="#i-arrow"/></svg></button>
+          <input type="hidden" name="interest" value="WhatsApp Bot"></form>
+          <p class="form-msg" id="cta-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+ <div class="footer-brand"><a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a><p>Intelligence. Simplified.<br>AI agents and the software around them.</p></div>
+ <nav class="footer-col" aria-label="Products"><h3>Products</h3><a href="index.html#voice">Voice Agent</a><a href="index.html#fillo">Fillo AI</a><a href="index.html#whatsapp">WhatsApp Bot</a><a href="index.html#commerce">E-commerce AI</a><a href="index.html#custom">Custom AI</a></nav>
+ <nav class="footer-col" aria-label="Company"><h3>Company</h3><a href="index.html#services">Services</a><a href="index.html#approach">Our approach</a><a href="demo.html">Live demo</a><a href="book.html">Book a meeting</a></nav>
+ <div class="footer-col"><h3>Contact</h3><a href="mailto:info@telza.ai">info@telza.ai</a><a href="tel:+14016783367">+1 (401) 678-3367</a><a href="https://wa.me/14016783367" target="_blank" rel="noopener">WhatsApp us ↗</a></div>
+ <div class="footer-bottom"><span>© <span data-year>2026</span> Telza AI. All rights reserved.</span><span>Intelligence. Simplified.</span><a href="#main">Back to top ↑</a></div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/14016783367?text=Hi%20Telza%2C%20I%27d%20like%20to%20know%20more%20about%20WhatsApp%20Automation." target="_blank" rel="noopener" aria-label="Chat with Telza on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Chat on WhatsApp</span></a>
+
+</body>
+</html>

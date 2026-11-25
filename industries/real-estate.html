@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Real Estate: Lead Qualification, Viewings &amp; Follow-ups | Telza AI</title>
+  <meta name="description" content="Telza AI for real estate: answer every property inquiry, qualify leads, book viewing appointments and follow up automatically by phone and WhatsApp.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../products/style.css">
+  <link rel="stylesheet" href="../products/industry.css">
+  <link rel="stylesheet" href="../products/chrome.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="../site.js" defer></script>
+  <script src="../products/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="../products/industry.js" defer></script>
+</head>
+<body class="page-industry industry-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs><filter id="brand-palette" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.762626 0.237374 0.000000 0.000000 0.000000 0.444444 0.555556 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000"/></filter></defs></svg>
+
+  <!-- ============ Icon sprite ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-phone-in" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2v6h6M22 2l-6 6"/></symbol>
+    <symbol id="i-phone-out" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2h6v6M16 8l6-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0V8zM12 18v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2V10z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-7 10 7z"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 20V6M2 14h20v6M22 14v-3a3 3 0 0 0-3-3h-8v6"/><circle cx="6.5" cy="10.5" r="1.5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14zM20 17v4H6.5a2.5 2.5 0 0 1 0-5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></symbol>
+    <symbol id="i-voicemail" viewBox="0 0 24 24"><circle cx="5.5" cy="11.5" r="4.5"/><circle cx="18.5" cy="11.5" r="4.5"/><path d="M5.5 16h13"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10M18 10c0 4-6 4-11 7"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="header">
+ <a class="brand" href="../index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="../assets/telza-logo.png" alt="Telza AI"></span></a>
+ <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-menu nav-products"><a href="../index.html#family">Products</a><div class="nav-dropdown"><a href="../fillo.html">Fillo</a><a href="../ai-voice-agent.html">AI Voice Agent</a><a href="../inbound-calling.html">Inbound Call</a><a href="../outbound-calling.html">Outbound Call</a><a href="../whatsapp-automation.html">WhatsApp Automation</a><a href="../ecommerce-ai-chatbot.html">E-commerce AI Chatbot</a><a href="../ai-automation.html">Custom AI Automation</a></div></div>
+  <div class="nav-menu nav-industries"><button class="nav-trigger" type="button" aria-expanded="false">Industries</button><div class="nav-dropdown"><a href="../industries/healthcare.html">Healthcare</a><a href="../industries/real-estate.html" aria-current="page">Real Estate</a><a href="../industries/ecommerce.html">E-commerce</a><a href="../industries/finance.html">Finance</a><a href="../industries/hospitality.html">Hospitality</a><a href="../industries/logistics.html">Logistics</a></div></div>
+  <a href="../index.html#services">Services</a>
+  <a href="../index.html#approach">Our approach</a>
+  <a href="../demo.html">Live demo</a>
+  <a class="nav-book" href="../book.html">Book a meeting</a>
+ </nav>
+ <div class="header-actions">
+  <a class="button small" href="../book.html">Book a meeting <span>↗</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><i></i><i></i></button>
+ </div>
+</header>
+
+  <main id="main">
+
+    <!-- Industry page (Real Estate). Same pattern as the other five industry pages (industry.css / industry.js);
+         only the content changes. Conversations, names and activity shown are illustrative. -->
+
+    <!-- ============ 1. Hero ============ -->
+    <section class="ind-hero" id="hero" aria-labelledby="ind-hero-title">
+      <div class="ind-hero__panel" aria-hidden="true"><span class="ind-hero__stripes"></span><span class="ind-hero__haze"></span></div>
+      <div class="container ind-hero__copy">
+        <span class="ind-kicker">Telza for Real Estate</span>
+        <h1 class="ind-hero__title" id="ind-hero-title">
+          <span class="ind-line"><span class="ind-line__in"><em>AI for Real Estate</em></span></span>
+          <span class="ind-line"><span class="ind-line__in">That Never Lets a Lead Go Cold</span></span>
+        </h1>
+        <p class="ind-hero__lead">Telza responds to every property inquiry the moment it arrives, qualifies buyers and renters, books viewings and follows up automatically, so your agents spend their time with serious clients.</p>
+        <div class="ind-hero__cta">
+          <a href="#cta" class="ind-btn ind-btn--solid">Book a Demo <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#solutions" class="ind-btn ind-btn--ghost">Explore Solutions</a>
+        </div>
+      </div>
+
+      <div class="ind-scene" role="img" aria-label="Illustration: a Telza dashboard for real estate showing an AI agent handling a conversation and today's completed activity">
+        <div class="ind-dash" aria-hidden="true">
+          <div class="ind-dash__bar"><i></i>Telza · Property inquiries<small>Illustrative</small></div>
+          <div class="ind-dash__body">
+            <div class="ind-convo">
+              <div class="ind-convo__head"><span class="ind-convo__ic"><svg class="icon"><use href="#i-chat"/></svg></span><span><small>WhatsApp · AI agent</small><b>New property inquiry</b></span><span class="ind-live">Live</span></div>
+              <p class="ind-b ind-b--in">Is the 2-bed apartment on Park Road still available?</p>
+              <p class="ind-b ind-b--ai">Yes, it is! Are you looking to buy, and what's your timeline?</p>
+              <p class="ind-b ind-b--in">Buying, within 3 months. Can I see it this week?</p>
+              <p class="ind-b ind-b--done"><svg class="icon"><use href="#i-check"/></svg>Qualified · viewing booked Sat 11:00</p>
+            </div>
+            <div class="ind-feed">
+              <span class="ind-feed__label">Today&rsquo;s activity</span>
+              <ul>
+                <li data-ind-row><span class="ind-feed__ic"><svg class="icon"><use href="#i-users"/></svg></span><span><b>Lead qualified</b><small>Buyer · 3-month timeline</small></span><em>Hot</em></li>
+                <li data-ind-row><span class="ind-feed__ic"><svg class="icon"><use href="#i-calendar"/></svg></span><span><b>Viewing booked</b><small>Park Road · Sat 11:00</small></span><em>Booked</em></li>
+                <li data-ind-row><span class="ind-feed__ic"><svg class="icon"><use href="#i-home"/></svg></span><span><b>Property inquiry answered</b><small>Parking &amp; service charges</small></span><em>Resolved</em></li>
+                <li data-ind-row><span class="ind-feed__ic"><svg class="icon"><use href="#i-repeat"/></svg></span><span><b>Follow-up sent</b><small>After Thursday's viewing</small></span><em>Sent</em></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. Industry challenges ============ -->
+    <section class="ind-challenges ind-light" id="challenges" aria-labelledby="ind-chal-title">
+      <div class="container">
+        <div class="ind-head ind-head--center">
+          <span class="ind-kicker">The challenge</span>
+          <h2 class="ind-h2" id="ind-chal-title">Where real estate leads slip away</h2>
+          <p>Inquiries arrive on every channel at every hour, and the first agency to respond usually wins the conversation.</p>
+        </div>
+        <div class="ind-challenges__grid">
+          <article class="ind-chal">
+            <div class="ind-chal__top"><span class="ind-chal__ic"><svg class="icon"><use href="#i-clock"/></svg></span><span class="ind-chal__num">01</span></div>
+            <h3>Slow responses to new inquiries</h3><p>Leads from portals, ads and your website wait while agents are out at viewings.</p>
+            <div class="ind-chal__fix"><svg class="icon"><use href="#i-check"/></svg><span>Telza: Every inquiry answered right away</span></div>
+          </article>
+          <article class="ind-chal">
+            <div class="ind-chal__top"><span class="ind-chal__ic"><svg class="icon"><use href="#i-users"/></svg></span><span class="ind-chal__num">02</span></div>
+            <h3>Time spent on unqualified leads</h3><p>Agents spend hours on calls with people who aren't ready yet or want something else.</p>
+            <div class="ind-chal__fix"><svg class="icon"><use href="#i-check"/></svg><span>Telza: Leads qualified before they reach agents</span></div>
+          </article>
+          <article class="ind-chal">
+            <div class="ind-chal__top"><span class="ind-chal__ic"><svg class="icon"><use href="#i-repeat"/></svg></span><span class="ind-chal__num">03</span></div>
+            <h3>Follow-ups fall through the cracks</h3><p>After a viewing or first call, busy agents don't always get back to every prospect in time.</p>
+            <div class="ind-chal__fix"><svg class="icon"><use href="#i-check"/></svg><span>Telza: Automatic, timely follow-ups</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Telza AI solutions ============ -->
+    <section class="ind-solutions" id="solutions" aria-labelledby="ind-sol-title">
+      <div class="container">
+        <div class="ind-head">
+          <span class="ind-kicker">Telza AI solutions</span>
+          <h2 class="ind-h2" id="ind-sol-title">How Telza helps real estate teams</h2>
+          <p>AI agents that handle the first conversation with every lead and keep things moving until they're ready to talk to an agent.</p>
+        </div>
+        <div class="ind-solutions__grid">
+          <article class="ind-sol">
+            <div>
+              <span class="ind-sol__ic"><svg class="icon"><use href="#i-target"/></svg></span>
+              <h3>Lead qualification</h3><p>The agent asks about budget, location, timeline and buying or renting, then passes qualified leads to the right agent.</p>
+              <a class="ind-sol__link" href="../outbound-calling.html">Outbound AI Calling <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ind-mini" aria-hidden="true"><span class="is-row">Budget<em>Matched</em></span><span class="is-row">Timeline · 3 months<em>Noted</em></span><span class="is-row">Lead status<em>Qualified</em></span></div>
+          </article>
+          <article class="ind-sol">
+            <div>
+              <span class="ind-sol__ic"><svg class="icon"><use href="#i-home"/></svg></span>
+              <h3>Property inquiries &amp; support</h3><p>Questions about price, availability, features and the area answered by phone or WhatsApp from your listing details.</p>
+              <a class="ind-sol__link" href="../whatsapp-automation.html">WhatsApp Automation <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ind-mini" aria-hidden="true"><span class="is-q">Does the flat have parking?</span><span class="is-a">Yes, one allocated space is included. Would you like to arrange a viewing?</span></div>
+          </article>
+          <article class="ind-sol">
+            <div>
+              <span class="ind-sol__ic"><svg class="icon"><use href="#i-calendar"/></svg></span>
+              <h3>Viewing appointments</h3><p>Prospects pick a time that suits them, and confirmations and reminders go out automatically.</p>
+              <a class="ind-sol__link" href="../inbound-calling.html">Inbound AI Voice Agents <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ind-mini" aria-hidden="true"><span class="is-row">Viewing · Sat 11:00<em>Booked</em></span><span class="is-row">Reminder<em>Sent</em></span><span class="is-tag"><svg class="icon"><use href="#i-check"/></svg>Confirmed</span></div>
+          </article>
+          <article class="ind-sol">
+            <div>
+              <span class="ind-sol__ic"><svg class="icon"><use href="#i-repeat"/></svg></span>
+              <h3>Automated follow-ups</h3><p>After viewings and inquiries, the agent checks in, answers new questions and keeps buyers, sellers and tenants updated.</p>
+              <a class="ind-sol__link" href="../ai-voice-agent.html">AI Voice Agents <svg class="icon"><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="ind-mini" aria-hidden="true"><span class="is-a">Hi Sara, how did you find Thursday's viewing? Want to see similar homes?</span><span class="is-q">Yes, anything with a garden.</span><span class="is-tag"><svg class="icon"><use href="#i-check"/></svg>Shortlist sent</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. How it works (same three steps on every industry page) ============ -->
+    <section class="ind-steps" id="how-it-works" aria-labelledby="ind-how-title">
+      <div class="container">
+        <div class="ind-head ind-head--center">
+          <span class="ind-kicker">How it works</span>
+          <h2 class="ind-h2" id="ind-how-title">Live in three simple steps</h2>
+        </div>
+        <ol class="ind-steps__grid">
+          <li class="ind-step"><span class="ind-step__num">1</span><h3>Tell us how your agency works</h3><p>Share your listings, service areas, qualification questions and how leads should be routed.</p><ul><li>Listings</li><li>Lead criteria</li><li>Routing</li></ul></li>
+          <li class="ind-step"><span class="ind-step__num">2</span><h3>We build your AI agent</h3><p>We set up your voice and WhatsApp agents around your process and connect them to the tools you already use.</p><ul><li>Voice &amp; WhatsApp</li><li>Your tools</li><li>Testing</li></ul></li>
+          <li class="ind-step"><span class="ind-step__num">3</span><h3>Go live and keep improving</h3><p>Your agents start talking to leads and clients, every conversation is logged, and we keep refining them with you.</p><ul><li>Go live</li><li>Review conversations</li><li>Improve</li></ul></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 5. Benefits ============ -->
+    <section class="ind-benefits" id="benefits" aria-labelledby="ind-ben-title">
+      <div class="container">
+        <div class="ind-head ind-head--center">
+          <span class="ind-kicker">Benefits</span>
+          <h2 class="ind-h2" id="ind-ben-title">What changes for your agency</h2>
+        </div>
+        <div class="ind-benefits__grid">
+          <article class="ind-ben"><span class="ind-ben__big">Instant</span><h3>Faster first response</h3><p>New leads hear back right away, while their interest is high.</p></article>
+          <article class="ind-ben"><span class="ind-ben__big">Qualified</span><h3>Better-qualified leads</h3><p>Agents receive leads with budget, timeline and needs already captured.</p></article>
+          <article class="ind-ben"><span class="ind-ben__big">24/7</span><h3>Never miss an inquiry</h3><p>Evening and weekend inquiries are handled as they arrive.</p></article>
+          <article class="ind-ben"><span class="ind-ben__big">More time</span><h3>More time for clients</h3><p>Agents focus on viewings, negotiations and closing deals.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. CTA (same component as the homepage's "Get started" CTA) ============ -->
+    <section class="section section--cta" id="cta">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__grid" aria-hidden="true"></div>
+          <span class="eyebrow">Telza for Real Estate</span>
+          <h2>Turn Every Property Inquiry Into a Viewing</h2>
+          <p>See how Telza would qualify your leads, book viewings and follow up for your agency. Book a demo and we'll show you how it works.</p>
+          <form class="cta-form" action="../book.html" method="get">
+            <label class="sr-only" for="cta-email">Work email</label>
+            <input type="email" id="cta-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <button type="submit" class="btn btn--primary">Book a Demo <svg class="icon"><use href="#i-arrow"/></svg></button>
+          </form>
+          <p class="form-msg" id="cta-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+ <div class="footer-brand"><a class="brand" href="../index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="../assets/telza-logo.png" alt="Telza AI"></span></a><p>Intelligence. Simplified.<br>AI agents and the software around them.</p></div>
+ <nav class="footer-col" aria-label="Products"><h3>Products</h3><a href="../index.html#voice">Voice Agent</a><a href="../index.html#fillo">Fillo AI</a><a href="../index.html#whatsapp">WhatsApp Bot</a><a href="../index.html#commerce">E-commerce AI</a><a href="../index.html#custom">Custom AI</a></nav>
+ <nav class="footer-col" aria-label="Company"><h3>Company</h3><a href="../index.html#services">Services</a><a href="../index.html#approach">Our approach</a><a href="../demo.html">Live demo</a><a href="../book.html">Book a meeting</a></nav>
+ <div class="footer-col"><h3>Contact</h3><a href="mailto:info@telza.ai">info@telza.ai</a><a href="tel:+14016783367">+1 (401) 678-3367</a><a href="https://wa.me/14016783367" target="_blank" rel="noopener">WhatsApp us ↗</a></div>
+ <div class="footer-bottom"><span>© <span data-year>2026</span> Telza AI. All rights reserved.</span><span>Intelligence. Simplified.</span><a href="#main">Back to top ↑</a></div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/14016783367?text=Hi%20Telza%2C%20I%27d%20like%20to%20know%20more%20about%20AI%20for%20Real%20Estate." target="_blank" rel="noopener" aria-label="Chat with Telza on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Chat on WhatsApp</span></a>
+
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce AI Chatbot — AI Shopping Assistant for Online Stores | Telza AI</title>
+  <meta name="description" content="Telza E-commerce AI Chatbot: an AI shopping assistant that answers product questions, recommends products, supports customers 24/7, shares order updates and recovers abandoned carts, connected to Shopify and WooCommerce.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products/style.css">
+  <link rel="stylesheet" href="products/ecommerce.css">
+  <link rel="stylesheet" href="products/chrome.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="site.js" defer></script>
+  <script src="products/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="products/ecommerce.js" defer></script>
+</head>
+<body class="page-ecommerce product-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs><filter id="brand-palette" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.762626 0.237374 0.000000 0.000000 0.000000 0.444444 0.555556 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000"/></filter></defs></svg>
+
+  <!-- ============ Icon sprite ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-phone-in" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2v6h6M22 2l-6 6"/></symbol>
+    <symbol id="i-phone-out" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2h6v6M16 8l6-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0V8zM12 18v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2V10z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-7 10 7z"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 20V6M2 14h20v6M22 14v-3a3 3 0 0 0-3-3h-8v6"/><circle cx="6.5" cy="10.5" r="1.5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14zM20 17v4H6.5a2.5 2.5 0 0 1 0-5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></symbol>
+    <symbol id="i-voicemail" viewBox="0 0 24 24"><circle cx="5.5" cy="11.5" r="4.5"/><circle cx="18.5" cy="11.5" r="4.5"/><path d="M5.5 16h13"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="header">
+ <a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a>
+ <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-menu nav-products"><a href="index.html#family">Products</a><div class="nav-dropdown"><a href="fillo.html">Fillo</a><a href="ai-voice-agent.html">AI Voice Agent</a><a href="inbound-calling.html">Inbound Call</a><a href="outbound-calling.html">Outbound Call</a><a href="whatsapp-automation.html">WhatsApp Automation</a><a href="ecommerce-ai-chatbot.html" aria-current="page">E-commerce AI Chatbot</a><a href="ai-automation.html">Custom AI Automation</a></div></div>
+  <div class="nav-menu nav-industries"><button class="nav-trigger" type="button" aria-expanded="false">Industries</button><div class="nav-dropdown"><a href="industries/healthcare.html">Healthcare</a><a href="industries/real-estate.html">Real Estate</a><a href="industries/ecommerce.html">E-commerce</a><a href="industries/finance.html">Finance</a><a href="industries/hospitality.html">Hospitality</a><a href="industries/logistics.html">Logistics</a></div></div>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#approach">Our approach</a>
+  <a href="demo.html">Live demo</a>
+  <a class="nav-book" href="book.html">Book a meeting</a>
+ </nav>
+ <div class="header-actions">
+  <a class="button small" href="book.html">Book a meeting <span>↗</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><i></i><i></i></button>
+ </div>
+</header>
+
+  <main id="main">
+
+    <!-- Same layout, components and motion as the other product pages (Inbound pattern, via whatsapp.css / whatsapp.js mirrored as ecommerce.*).
+         Telza describes E-commerce AI as automating product inquiries, customer support and shopping conversations;
+         Shopify and WooCommerce are on Telza's integration list. Stores, products, chats and figures shown are illustrative. -->
+
+    <!-- ============ Hero ============ -->
+    <section class="ec-hero" id="hero" aria-labelledby="ec-hero-title">
+      <div class="ec-hero__panel" aria-hidden="true"><span class="ec-hero__stripes"></span><span class="ec-hero__haze"></span></div>
+
+      <div class="container ec-hero__copy">
+        <h1 class="ec-hero__title" id="ec-hero-title">
+          <span class="ec-line"><span class="ec-line__in">The AI shopping assistant that</span></span>
+          <span class="ec-line"><span class="ec-line__in"><em>answers</em>, recommends and <em>sells</em></span></span>
+        </h1>
+        <p class="ec-hero__lead">Telza's E-commerce AI Chatbot talks with your shoppers around the clock. It answers product questions, helps people find and choose the right products, shares order updates and brings back abandoned carts, all connected to your Shopify or WooCommerce store.</p>
+        <div class="ec-hero__cta">
+          <a href="#cta" class="ec-btn ec-btn--solid">Start with E-commerce AI</a>
+          <a href="#journey" class="ec-btn ec-btn--ghost">See how it works</a>
+        </div>
+      </div>
+
+      <!-- Hero visual (illustrative): a storefront with Telza's shopping assistant open -->
+      <div class="ec-scene ec-scene--chat" role="img" aria-label="Illustration: an online store with Telza's AI shopping assistant recommending products in a chat window, surrounded by cards for a recovered cart, an order update, a product recommendation and a captured lead">
+        <div class="ec-card ec-card--1" aria-hidden="true"><span class="ec-card__k"><svg class="icon"><use href="#i-cart"/></svg>Cart recovered</span><b>3 items · back at checkout</b><div class="ec-card__row"><span>Reminder</span><span class="is-on">Returned</span></div></div>
+        <div class="ec-card ec-card--2 ec-card--dark" aria-hidden="true"><span class="ec-card__k"><svg class="icon"><use href="#i-truck"/></svg>Order update</span><b>Order #2291 · out for delivery</b><small>Shared in the chat</small></div>
+        <div class="ec-card ec-card--3 ec-card--dark" aria-hidden="true"><span class="ec-card__k"><svg class="icon"><use href="#i-spark"/></svg>Recommended</span><b>"Goes well with your jacket"</b><small>Matching scarf added to cart</small></div>
+        <div class="ec-card ec-card--4" aria-hidden="true"><span class="ec-card__k"><svg class="icon"><use href="#i-target"/></svg>Lead captured</span><b>Back-in-stock alert</b><small>Email saved for size M</small></div>
+        <div class="ec-store" aria-hidden="true">
+          <div class="ec-store__bar"><i></i><i></i><i></i><span>yourstore.com/new-in</span></div>
+          <div class="ec-store__nav">Your Store<em><svg class="icon"><use href="#i-cart"/></svg><b>2</b></em></div>
+          <div class="ec-store__grid">
+            <div class="ec-pr"><span class="ec-pr__img" style="--g:linear-gradient(135deg,#bff7ea,#14C9B8)"></span><b>Rain Jacket</b><small>$129</small></div>
+            <div class="ec-pr"><span class="ec-pr__img" style="--g:linear-gradient(135deg,#d9ffcf,#39FF14)"></span><b>Trail Sneakers</b><small>$89</small></div>
+            <div class="ec-pr"><span class="ec-pr__img" style="--g:linear-gradient(135deg,#cfe8e2,#0c6f63)"></span><b>Wool Scarf</b><small>$35</small></div>
+          </div>
+        </div>
+        <div class="ec-widget" aria-hidden="true">
+          <div class="ec-widget__bar"><span class="ec-hphone__av"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" decoding="async"></span><span><b>Shopping assistant</b><small>● Online · replies instantly</small></span></div>
+          <div class="ec-thread">
+            <div class="ec-b ec-b--in">Do you have a waterproof jacket for hiking?<small>14:21</small></div>
+            <div class="ec-b ec-b--out">Yes! These two are fully waterproof and great on trails:<small>14:21</small></div>
+            <div class="ec-rec"><i style="--g:linear-gradient(135deg,#bff7ea,#14C9B8)"></i><span><b>Rain Jacket</b><small>$129 · in stock</small></span><em>Add to cart</em></div>
+            <div class="ec-rec"><i style="--g:linear-gradient(135deg,#eaf5f1,#5fe0bf)"></i><span><b>Trail Shell</b><small>$149 · in stock</small></span><em>Add to cart</em></div>
+            <div class="ec-typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Intro: smart shopping assistant ============ -->
+    <section class="ec-light ec-intro" aria-labelledby="ec-intro-title">
+      <div class="container">
+        <span class="ec-kicker">Smart shopping assistant</span>
+        <h2 class="ec-intro__title" id="ec-intro-title">
+          <span class="ec-line"><span class="ec-line__in">Every shopper helped.</span></span>
+          <span class="ec-line"><span class="ec-line__in">Every question <mark class="ec-mark">turned into a sale.</mark></span></span>
+        </h2>
+        <p class="ec-intro__lead">Telza's E-commerce AI Chatbot works like your best sales associate, on every page of your store, at any hour. It understands what shoppers are looking for, answers product questions, suggests what fits and handles the support questions that usually fill your inbox.</p>
+        <ul class="ec-chips" aria-label="What the shopping assistant does">
+          <li><svg class="icon"><use href="#i-chat"/></svg>Answers product questions</li>
+          <li><svg class="icon"><use href="#i-search"/></svg>Helps shoppers find products</li>
+          <li><svg class="icon"><use href="#i-spark"/></svg>Recommends and upsells</li>
+          <li><svg class="icon"><use href="#i-truck"/></svg>Shares order updates</li>
+          <li><svg class="icon"><use href="#i-clock"/></svg>Supports customers 24/7</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Why: what happens in a store without an assistant ============ -->
+    <section class="ec-why" aria-labelledby="ec-why-title">
+      <div class="container ec-why__grid">
+        <div class="ec-phone" aria-hidden="true">
+          <span class="ec-phone__notch"></span>
+          <span class="ec-phone__label">Your store today</span>
+          <div class="ec-note" data-ec-note>
+            <span class="ec-note__ic"><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span class="ec-note__txt ec-note__before"><b>Question left unanswered</b><small>Shopper asked at 2 AM and left</small></span>
+            <span class="ec-note__txt ec-note__after"><b>Answered instantly</b><small>Shopper went on to buy</small></span>
+          </div>
+          <div class="ec-note" data-ec-note>
+            <span class="ec-note__ic"><svg class="icon"><use href="#i-cart"/></svg></span>
+            <span class="ec-note__txt ec-note__before"><b>Cart abandoned</b><small>3 items left at checkout</small></span>
+            <span class="ec-note__txt ec-note__after"><b>Cart recovered</b><small>Reminder brought the shopper back</small></span>
+          </div>
+          <div class="ec-note" data-ec-note>
+            <span class="ec-note__ic"><svg class="icon"><use href="#i-truck"/></svg></span>
+            <span class="ec-note__txt ec-note__before"><b>"Where is my order?"</b><small>Support inbox piling up</small></span>
+            <span class="ec-note__txt ec-note__after"><b>Tracking shared</b><small>Answered in the chat</small></span>
+          </div>
+        </div>
+        <div class="ec-why__copy">
+          <span class="ec-kicker">Why it matters</span>
+          <h2 class="ec-h2" id="ec-why-title">Shoppers who can&rsquo;t get an answer don&rsquo;t buy</h2>
+          <ol class="ec-why__list">
+            <li data-ec-why><span class="ec-why__num">01</span><div><h3>Questions come at every hour</h3><p>Sizes, materials, shipping times. When nobody answers, shoppers leave. Telza replies 24/7, the moment they ask.</p></div></li>
+            <li data-ec-why><span class="ec-why__num">02</span><div><h3>Carts get left behind</h3><p>Shoppers hesitate at checkout and drift away. Telza follows up and helps them finish the order.</p></div></li>
+            <li data-ec-why><span class="ec-why__num">03</span><div><h3>Support repeats itself</h3><p>Order status and return questions fill your inbox. Telza handles the routine and passes the rest to your team.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Features: product discovery & recommendations ============ -->
+    <section class="ec-light ec-features" id="features" aria-labelledby="ec-features-title">
+      <div class="container">
+        <div class="ec-head ec-head--center">
+          <span class="ec-kicker">Product discovery &amp; recommendations</span>
+          <h2 class="ec-h2" id="ec-features-title">Help every shopper find, choose and buy</h2>
+        </div>
+        <div class="ec-features__grid">
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--assist" aria-hidden="true"><span class="is-q">Need a gift for my dad under $50</span><span class="is-a">Here are three best-sellers he&rsquo;ll love.</span><span class="is-cta"><b>Show me</b><b>Gift wrap?</b></span></div>
+            <h3>AI shopping assistant</h3><p>A friendly assistant on every page that understands what shoppers want and guides them to it.</p>
+          </article>
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--search" aria-hidden="true"><span class="is-input"><svg class="icon"><use href="#i-search"/></svg>light running shoes<i></i></span><span class="is-tags"><b>Running</b><b>Under $100</b><b>Size 9</b></span></div>
+            <h3>Product discovery &amp; search</h3><p>Shoppers describe what they need in their own words, and Telza finds the matching products.</p>
+          </article>
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--recs" aria-hidden="true"><span class="is-top"><i style="--g:linear-gradient(135deg,#bff7ea,#14C9B8)"></i><b>Rain Jacket</b><em>Top pick</em></span><span><i style="--g:linear-gradient(135deg,#d9ffcf,#39FF14)"></i><b>Sneakers</b><em>$89</em></span><span><i style="--g:linear-gradient(135deg,#cfe8e2,#0c6f63)"></i><b>Scarf</b><em>$35</em></span></div>
+            <h3>Personalised recommendations</h3><p>Suggestions based on what each shopper is browsing and asking about, so they see what fits them.</p>
+          </article>
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--upsell" aria-hidden="true"><span class="is-row"><i style="--g:linear-gradient(135deg,#bff7ea,#14C9B8)"></i><span><b>Rain Jacket</b><small>In your cart</small></span><em>$129</em></span><span class="is-plus">+ Goes well with</span><span class="is-row"><i style="--g:linear-gradient(135deg,#cfe8e2,#0c6f63)"></i><span><b>Wool Scarf</b><small>Often bought together</small></span><em>Add</em></span></div>
+            <h3>Upselling &amp; cross-selling</h3><p>Relevant add-ons and upgrades suggested at the right moment, to grow every order.</p>
+          </article>
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--faq" aria-hidden="true"><span class="is-q">Is this machine washable?</span><span class="is-a">Yes, at 30°C. It ships in 2&ndash;3 days and returns are free for 30 days.</span></div>
+            <h3>Product FAQs answered</h3><p>Sizing, materials, shipping and returns, answered instantly from your store&rsquo;s information.</p>
+          </article>
+          <article class="ec-feature">
+            <div class="ec-vis ec-vis--lead" aria-hidden="true"><span class="is-field">Email<i style="--w:76%"></i></span><span class="is-field">Interest<i style="--w:58%"></i></span><span class="is-ok">Back-in-stock alert saved</span></div>
+            <h3>Lead capture &amp; engagement</h3><p>Captures shopper details for back-in-stock alerts, offers and follow-ups, so interest isn&rsquo;t lost.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ How it works: the shopping journey (pinned on desktop) ============ -->
+    <section class="ec-journey" id="journey" aria-labelledby="ec-journey-title">
+      <div class="ec-journey__stage">
+        <div class="container ec-journey__grid">
+          <div class="ec-journey__copy">
+            <span class="ec-kicker">How it works</span>
+            <h2 class="ec-h2" id="ec-journey-title">From first question to completed order</h2>
+            <ol class="ec-steps">
+              <li class="ec-step" data-ec-step><span class="ec-step__num">01</span><div><h3>A shopper asks</h3><p>A visitor opens the chat on your store and describes what they&rsquo;re looking for.</p></div></li>
+              <li class="ec-step" data-ec-step><span class="ec-step__num">02</span><div><h3>Telza finds the products</h3><p>It searches your catalog and suggests the products that match, with prices and stock.</p></div></li>
+              <li class="ec-step" data-ec-step><span class="ec-step__num">03</span><div><h3>Questions answered</h3><p>Sizing, shipping and returns are answered right in the chat, so nothing holds the shopper back.</p></div></li>
+              <li class="ec-step" data-ec-step><span class="ec-step__num">04</span><div><h3>Added to cart</h3><p>The shopper adds the product, and Telza suggests a fitting add-on before checkout.</p></div></li>
+              <li class="ec-step" data-ec-step><span class="ec-step__num">05</span><div><h3>Order placed and followed up</h3><p>After checkout, order updates are shared in the chat whenever the shopper asks.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="ec-call" aria-hidden="true">
+            <div class="ec-call__head">
+              <span class="ec-call__avatar"><svg class="icon"><use href="#i-cart"/></svg></span>
+              <div class="ec-call__who"><b>Store chat · Leo M.</b><small data-ec-status>Order placed · updates on</small></div>
+              <span class="ec-call__timer" data-ec-timer>14:26</span>
+            </div>
+            <div class="ec-chathead"><span data-ec-tag="1">Ask</span><span data-ec-tag="2">Discover</span><span data-ec-tag="3">Answer</span><span data-ec-tag="4">Cart</span><span data-ec-tag="5">Order</span></div>
+            <ul class="ec-call__log">
+              <li class="ec-msg ec-msg--caller" data-ec-msg="1">Looking for trail running shoes, size 9.</li>
+              <li class="ec-msg ec-msg--card" data-ec-msg="2"><b>Trail Sneakers · $89</b><small>Size 9 in stock · rated for wet trails</small><em>View product</em></li>
+              <li class="ec-msg ec-msg--caller" data-ec-msg="3">Do they run small?</li>
+              <li class="ec-msg ec-msg--ai" data-ec-msg="3">They fit true to size, and returns are free for 30 days.</li>
+              <li class="ec-msg ec-msg--ai" data-ec-msg="4">Added to your cart! Want matching running socks for $12?</li>
+              <li class="ec-msg ec-msg--qr" data-ec-msg="4"><span>Add socks</span><span>Checkout</span></li>
+              <li class="ec-msg ec-msg--event" data-ec-msg="5"><svg class="icon"><use href="#i-check"/></svg>Order #2291 placed · updates in chat</li>
+            </ul>
+            <span class="ec-call__note">Illustrative chat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Benefits for online businesses ============ -->
+    <section class="ec-benefits" aria-labelledby="ec-benefits-title">
+      <div class="container">
+        <div class="ec-head">
+          <span class="ec-kicker">Benefits for online businesses</span>
+          <h2 class="ec-h2" id="ec-benefits-title">More sales. Happier shoppers. Lighter inbox.</h2>
+        </div>
+        <div class="ec-benefits__grid">
+          <article class="ec-benefit"><span class="ec-benefit__ic"><svg class="icon"><use href="#i-chart"/></svg></span><h3>More completed orders</h3><p>Answered questions, fitting suggestions and cart follow-ups help more shoppers reach checkout.</p></article>
+          <article class="ec-benefit"><span class="ec-benefit__ic"><svg class="icon"><use href="#i-clock"/></svg></span><h3>Support around the clock</h3><p>Shoppers get answers at any hour, including weekends and sale peaks.</p></article>
+          <article class="ec-benefit"><span class="ec-benefit__ic"><svg class="icon"><use href="#i-star"/></svg></span><h3>A personal shopping experience</h3><p>Every shopper gets help and suggestions that fit what they are looking for.</p></article>
+          <article class="ec-benefit"><span class="ec-benefit__ic"><svg class="icon"><use href="#i-users"/></svg></span><h3>Less repetitive support</h3><p>Routine questions are handled automatically, so your team focuses on the cases that need them.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Automated customer support (AI + your team) ============ -->
+    <section class="ec-handoff" aria-labelledby="ec-handoff-title">
+      <div class="container">
+        <div class="ec-head ec-head--center">
+          <span class="ec-kicker">Automated customer support</span>
+          <h2 class="ec-h2" id="ec-handoff-title">Telza answers the routine. <mark class="ec-mark">Your team handles the rest.</mark></h2>
+        </div>
+        <div class="ec-relay">
+          <div class="ec-lane ec-lane--ai">
+            <div class="ec-lane__head"><span class="ec-lane__mark"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>Telza AI</b></div>
+            <ul>
+              <li>Answers product and shipping questions</li>
+              <li>Shares order status and tracking</li>
+              <li>Explains your return policy</li>
+              <li>Supports shoppers 24/7</li>
+            </ul>
+          </div>
+          <div class="ec-relay__track" aria-hidden="true">
+            <span class="ec-relay__line"></span>
+            <span class="ec-relay__token" data-ec-token><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span class="ec-relay__label">Passes complex cases with the full chat</span>
+          </div>
+          <div class="ec-lane ec-lane--team">
+            <div class="ec-lane__head"><span class="ec-lane__mark ec-lane__mark--team"><svg class="icon"><use href="#i-users"/></svg></span><b>Your team</b></div>
+            <ul>
+              <li>Handles refunds and exceptions</li>
+              <li>Takes over sensitive conversations</li>
+              <li>Focuses on customers who need a person</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Spotlight: order tracking & management + abandoned cart recovery ============ -->
+    <section class="ec-spot" id="orders" aria-labelledby="ec-spot-title">
+      <div class="container">
+        <div class="ec-head ec-head--center">
+          <span class="ec-kicker">After the add-to-cart</span>
+          <h2 class="ec-h2" id="ec-spot-title">Orders tracked. Carts recovered.</h2>
+        </div>
+        <div class="ec-spot__grid">
+          <article class="ec-panel">
+            <div>
+              <span class="ec-kicker">Order tracking &amp; management</span>
+              <h3>&ldquo;Where is my order?&rdquo; answered in seconds</h3>
+              <p>Shoppers check order status, delivery dates and tracking in the chat, without waiting for your support team.</p>
+            </div>
+            <div class="ec-panel__ui" aria-hidden="true">
+              <div class="ec-ui__head">Order #2291<small>Illustrative</small></div>
+              <div class="ec-track" data-ec-track><span class="is-done">Ordered</span><span class="is-done">Packed</span><span class="is-now">Shipped</span><span>Delivered</span></div>
+              <ul class="ec-orders">
+                <li><span>Order #2291 · Leo M.<small>Out for delivery today</small></span><em>Shipped</em></li>
+                <li><span>Order #2288 · Ana R.<small>Delivered yesterday</small></span><em class="is-ok">Delivered</em></li>
+                <li><span>Order #2285 · Sam K.<small>Address updated in chat</small></span><em>Updated</em></li>
+              </ul>
+            </div>
+          </article>
+          <article class="ec-panel">
+            <div>
+              <span class="ec-kicker">Abandoned cart recovery</span>
+              <h3>Bring hesitant shoppers back to checkout</h3>
+              <p>When a cart is left behind, Telza follows up, answers what held the shopper back and helps them finish the order.</p>
+            </div>
+            <div class="ec-panel__ui" aria-hidden="true">
+              <div class="ec-ui__head">Cart left at checkout<small>Illustrative</small></div>
+              <div class="ec-cart">
+                <div class="ec-cart__item"><i style="--g:linear-gradient(135deg,#bff7ea,#14C9B8)"></i><span><b>Rain Jacket</b><small>Size M</small></span><span>$129</span></div>
+                <div class="ec-cart__item"><i style="--g:linear-gradient(135deg,#d9ffcf,#39FF14)"></i><span><b>Trail Sneakers</b><small>Size 9</small></span><span>$89</span></div>
+              </div>
+              <ol class="ec-flow" data-ec-flow>
+                <li><svg class="icon"><use href="#i-clock"/></svg>Cart left at checkout</li>
+                <li><svg class="icon"><use href="#i-chat"/></svg>Friendly reminder sent</li>
+                <li><svg class="icon"><use href="#i-spark"/></svg>Question about sizing answered</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Order completed</li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Use cases (interactive tabs) ============ -->
+    <section class="ec-light ec-uses" aria-labelledby="ec-uses-title">
+      <div class="container">
+        <div class="ec-head ec-head--center">
+          <span class="ec-kicker">Use cases</span>
+          <h2 class="ec-h2" id="ec-uses-title">Built for every moment of the shopping journey</h2>
+        </div>
+        <div class="ec-uses__box" data-ec-uses>
+          <div class="ec-uses__tabs" role="tablist" aria-label="E-commerce chatbot use cases">
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-1" aria-controls="ec-use-1" aria-selected="true" tabindex="0"><svg class="icon"><use href="#i-spark"/></svg>Personalised shopping</button>
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-2" aria-controls="ec-use-2" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-truck"/></svg>Order tracking</button>
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-3" aria-controls="ec-use-3" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-cart"/></svg>Abandoned carts</button>
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-4" aria-controls="ec-use-4" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-chat"/></svg>Product FAQs</button>
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-5" aria-controls="ec-use-5" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-bolt"/></svg>Upsell &amp; cross-sell</button>
+              <button type="button" class="ec-utab" role="tab" id="ec-utab-6" aria-controls="ec-use-6" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-target"/></svg>Lead capture</button>
+          </div>
+          <div class="ec-uses__panels">
+            <article class="ec-use" role="tabpanel" id="ec-use-1" aria-labelledby="ec-utab-1">
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;I&rsquo;m looking for a gift for my sister who loves hiking.&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Asks a couple of quick questions about style and budget</li>
+                <li><span>Then</span>Suggests matching products with prices and stock</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Gift found and added to cart</div>
+            </article>
+            <article class="ec-use" role="tabpanel" id="ec-use-2" aria-labelledby="ec-utab-2" hidden>
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;Where is my order? I placed it on Monday.&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Finds the shopper&rsquo;s order</li>
+                <li><span>Then</span>Shares the status, delivery date and tracking link</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Order status shared in seconds</div>
+            </article>
+            <article class="ec-use" role="tabpanel" id="ec-use-3" aria-labelledby="ec-utab-3" hidden>
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;I left something in my cart but wasn&rsquo;t sure about the size.&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Picks up the shopper&rsquo;s saved cart</li>
+                <li><span>Then</span>Answers the sizing question and links back to checkout</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Cart recovered</div>
+            </article>
+            <article class="ec-use" role="tabpanel" id="ec-use-4" aria-labelledby="ec-utab-4" hidden>
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;Is this jacket warm enough for winter?&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Answers from your product information</li>
+                <li><span>Then</span>Suggests a warmer option if it&rsquo;s a better fit</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Question answered, shopper confident</div>
+            </article>
+            <article class="ec-use" role="tabpanel" id="ec-use-5" aria-labelledby="ec-utab-5" hidden>
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;I&rsquo;ll take the running shoes.&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Confirms the product and size</li>
+                <li><span>Then</span>Suggests a fitting add-on like socks or insoles</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Bigger, better-matched order</div>
+            </article>
+            <article class="ec-use" role="tabpanel" id="ec-use-6" aria-labelledby="ec-utab-6" hidden>
+              <div class="ec-use__caller"><span class="ec-use__who">Shopper in your store chat</span><p>&ldquo;Let me know when the blue one is back in stock.&rdquo;</p></div>
+              <ol class="ec-use__flow">
+                <li><span>Telza</span>Collects the shopper&rsquo;s email or WhatsApp</li>
+                <li><span>Then</span>Saves the request for a back-in-stock alert</li>
+              </ol>
+              <div class="ec-use__out"><svg class="icon"><use href="#i-check"/></svg>Lead captured for follow-up</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Shopify & WooCommerce integration ============ -->
+    <section class="ec-integrations" aria-labelledby="ec-int-title">
+      <div class="container ec-int__grid">
+        <div class="ec-int__copy">
+          <span class="ec-kicker">Shopify &amp; WooCommerce integration</span>
+          <h2 class="ec-h2" id="ec-int-title">Plugged into your store</h2>
+          <p class="ec-int__lead">Telza connects with Shopify and WooCommerce, so the assistant works from your real products, prices, stock and orders. It can also connect with your CRM, WhatsApp and other supported systems.</p>
+          <p class="ec-int__note">Using another platform? We'll review the integration requirements with you during the demo.</p>
+        </div>
+        <div class="ec-orbit" aria-label="Connected platforms and systems">
+          <span class="ec-orbit__ring" aria-hidden="true"></span><span class="ec-orbit__ring ec-orbit__ring--2" aria-hidden="true"></span>
+          <span class="ec-orbit__core" aria-hidden="true"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+          <ul class="ec-orbit__nodes">
+            <li style="--i:0">Shopify</li><li style="--i:1">WooCommerce</li><li style="--i:2">WhatsApp</li><li style="--i:3">Your CRM</li><li style="--i:4">Zapier</li><li style="--i:5">Stripe</li><li style="--i:6">APIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (answers as published on the Telza homepage) ============ -->
+    <section class="section ec-faq" id="faq">
+      <div class="container faq">
+        <div class="section-head section-head--left reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">Questions about the E-commerce AI Chatbot</h2>
+          <p class="section-lead">Something else on your mind? <a href="#cta" class="link">Talk to our team</a>.</p>
+        </div>
+        <div class="accordion accordion--rich reveal" data-delay="1" data-accordion>
+          <div class="acc-item is-open">
+            <button type="button" class="acc-trigger" aria-expanded="true" aria-controls="ecfaq-1" id="ecfaq-1-btn">Which Telza AI product is right for my business?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ecfaq-1" role="region" aria-labelledby="ecfaq-1-btn"><div>
+              <p>That depends on the work you want to automate.</p>
+              <p><strong>Fillo</strong> supports lead operations and processing.</p>
+              <p><strong>Telza Voice</strong> handles inbound and outbound phone conversations.</p>
+              <p><strong>WhatsApp Automation</strong> handles messaging, follow-up, qualification, reminders, and supported customer workflows.</p>
+              <p><strong>E-commerce AI</strong> helps online stores with product questions, customer support, and shopping conversations.</p>
+              <p>For workflows that do not fit an existing product, Telza can also build <strong>custom AI automation</strong>.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ecfaq-2" id="ecfaq-2-btn">Can Telza work with the systems we already use?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ecfaq-2" role="region" aria-labelledby="ecfaq-2-btn"><div>
+              <p>Telza can connect with supported CRMs, dialers, calendars, APIs, and other business systems depending on the product and workflow.</p>
+              <p>Supported platforms:<br><strong>VICIdial</strong> · <strong>Telnyx</strong> · <strong>Vonage</strong> · <strong>Signalwire</strong> · <strong>Bitrix</strong> · <strong>Zapier</strong> · <strong>Twilio</strong></p>
+              <p>If your system is not already supported, we can review the integration requirements during the demo.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ecfaq-3" id="ecfaq-3-btn">Do we need to change our existing scripts and processes?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ecfaq-3" role="region" aria-labelledby="ecfaq-3-btn"><div>
+              <p>Not necessarily.</p>
+              <p>Your existing scripts, qualification criteria, business rules, and workflows can be used as the starting point.</p>
+              <p>We then adapt them for AI so the agent can respond to different answers, conditions, objections, and actions instead of simply reading a fixed script line by line.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ecfaq-4" id="ecfaq-4-btn">How long does it take to get started?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ecfaq-4" role="region" aria-labelledby="ecfaq-4-btn"><div>
+              <p>Implementation depends on the product, workflow complexity, integrations, campaign logic, and testing required.</p>
+              <p>During the initial review, we map the workflow first and then give you a realistic implementation plan based on your setup.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ecfaq-5" id="ecfaq-5-btn">Can we see Telza AI working before we buy?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ecfaq-5" role="region" aria-labelledby="ecfaq-5-btn"><div>
+              <p>Yes.</p>
+              <p>You can request a demo based on the product or workflow you are interested in, including <strong>Voice AI</strong>, <strong>Fillo</strong>, <strong>WhatsApp Automation</strong>, and <strong>E-commerce AI</strong>.</p>
+              <p>For Voice AI, we can also provide relevant call examples so you can hear how Telza handles real conversation scenarios.</p>
+              <p class="acc-cta"><a href="#cta" class="btn btn--primary btn--sm">Request a Demo <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA (same component as the homepage's "Get started" CTA; e-commerce copy) ============ -->
+    <section class="section section--cta" id="cta">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__grid" aria-hidden="true"></div>
+          <span class="eyebrow">Get started with E-commerce AI</span>
+          <h2>Give every shopper a personal assistant</h2>
+          <p>Book a walkthrough and we'll show you how Telza answers your shoppers, recommends products and recovers carts, using your own store and catalog.</p>
+          <form class="cta-form" action="book.html" method="get">
+            <label class="sr-only" for="cta-email">Work email</label>
+            <input type="email" id="cta-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <button type="submit" class="btn btn--primary">Book a demo <svg class="icon"><use href="#i-arrow"/></svg></button>
+          <input type="hidden" name="interest" value="E-commerce AI"></form>
+          <p class="form-msg" id="cta-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+ <div class="footer-brand"><a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a><p>Intelligence. Simplified.<br>AI agents and the software around them.</p></div>
+ <nav class="footer-col" aria-label="Products"><h3>Products</h3><a href="index.html#voice">Voice Agent</a><a href="index.html#fillo">Fillo AI</a><a href="index.html#whatsapp">WhatsApp Bot</a><a href="index.html#commerce">E-commerce AI</a><a href="index.html#custom">Custom AI</a></nav>
+ <nav class="footer-col" aria-label="Company"><h3>Company</h3><a href="index.html#services">Services</a><a href="index.html#approach">Our approach</a><a href="demo.html">Live demo</a><a href="book.html">Book a meeting</a></nav>
+ <div class="footer-col"><h3>Contact</h3><a href="mailto:info@telza.ai">info@telza.ai</a><a href="tel:+14016783367">+1 (401) 678-3367</a><a href="https://wa.me/14016783367" target="_blank" rel="noopener">WhatsApp us ↗</a></div>
+ <div class="footer-bottom"><span>© <span data-year>2026</span> Telza AI. All rights reserved.</span><span>Intelligence. Simplified.</span><a href="#main">Back to top ↑</a></div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/14016783367?text=Hi%20Telza%2C%20I%27d%20like%20to%20know%20more%20about%20E-commerce%20AI%20Chatbot." target="_blank" rel="noopener" aria-label="Chat with Telza on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Chat on WhatsApp</span></a>
+
+</body>
+</html>

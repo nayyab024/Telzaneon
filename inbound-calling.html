@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inbound Calling — AI Voice Agent for Incoming Calls | Telza AI</title>
+  <meta name="description" content="Telza Inbound Calling: an AI voice agent that answers your incoming calls, responds to customer inquiries, collects caller information, completes configured workflows and transfers callers to your team when a person is needed.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products/style.css">
+  <link rel="stylesheet" href="products/inbound.css">
+  <link rel="stylesheet" href="products/chrome.css">
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+  <script src="site.js" defer></script>
+  <script src="products/script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="products/inbound.js" defer></script>
+</head>
+<body class="page-inbound product-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;overflow:hidden"><defs><filter id="brand-palette" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.762626 0.237374 0.000000 0.000000 0.000000 0.444444 0.555556 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000"/></filter></defs></svg>
+
+  <!-- ============ Icon sprite ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+    <symbol id="i-phone-in" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2v6h6M22 2l-6 6"/></symbol>
+    <symbol id="i-phone-out" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16 2h6v6M16 8l6-6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0V8zM12 18v4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2V10z"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M19 21V10M9 21V10M15 21V10M2 10l10-7 10 7z"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 20V6M2 14h20v6M22 14v-3a3 3 0 0 0-3-3h-8v6"/><circle cx="6.5" cy="10.5" r="1.5"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14zM20 17v4H6.5a2.5 2.5 0 0 1 0-5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="header">
+ <a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a>
+ <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <div class="nav-menu nav-products"><a href="index.html#family">Products</a><div class="nav-dropdown"><a href="fillo.html">Fillo</a><a href="ai-voice-agent.html">AI Voice Agent</a><a href="inbound-calling.html" aria-current="page">Inbound Call</a><a href="outbound-calling.html">Outbound Call</a><a href="whatsapp-automation.html">WhatsApp Automation</a><a href="ecommerce-ai-chatbot.html">E-commerce AI Chatbot</a><a href="ai-automation.html">Custom AI Automation</a></div></div>
+  <div class="nav-menu nav-industries"><button class="nav-trigger" type="button" aria-expanded="false">Industries</button><div class="nav-dropdown"><a href="industries/healthcare.html">Healthcare</a><a href="industries/real-estate.html">Real Estate</a><a href="industries/ecommerce.html">E-commerce</a><a href="industries/finance.html">Finance</a><a href="industries/hospitality.html">Hospitality</a><a href="industries/logistics.html">Logistics</a></div></div>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#approach">Our approach</a>
+  <a href="demo.html">Live demo</a>
+  <a class="nav-book" href="book.html">Book a meeting</a>
+ </nav>
+ <div class="header-actions">
+  <a class="button small" href="book.html">Book a meeting <span>↗</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><i></i><i></i></button>
+ </div>
+</header>
+
+  <main id="main">
+
+    <!-- Content: Telza's own product descriptions (Inbound Call AI card, homepage FAQ, supported platforms).
+         Research reference for topics only: reves.ai inbound page. No statistics or testimonials are used.
+         Route: /inbound-calling/ (folder) forwards here; Products → Inbound Calling links here. Motion: inbound.js (GSAP + ScrollTrigger on mouse/trackpad screens, lighter on touch). -->
+
+    <!-- ============ Hero ============ -->
+    <section class="ib-hero" id="hero" aria-labelledby="ib-hero-title">
+      <div class="ib-hero__panel" aria-hidden="true"><span class="ib-hero__stripes"></span><span class="ib-hero__haze"></span></div>
+
+      <div class="container ib-hero__copy">
+        <h1 class="ib-hero__title" id="ib-hero-title">
+          <span class="ib-line"><span class="ib-line__in">The inbound voice AI that</span></span>
+          <span class="ib-line"><span class="ib-line__in"><em>picks up</em>, helps and <em>hands off</em></span></span>
+        </h1>
+        <p class="ib-hero__lead">Telza answers your incoming calls, responds to customer inquiries, collects the details your process needs and transfers the caller to your team when a person should take over.</p>
+        <div class="ib-hero__cta">
+          <a href="#cta" class="ib-btn ib-btn--solid">Start with Inbound</a>
+          <a href="#journey" class="ib-btn ib-btn--ghost">See a call in action</a>
+        </div>
+      </div>
+
+      <div class="ib-scene">
+        <img class="ib-scene__img" src="assets/wide_clean_cutout_transparent_background_composit.png" width="1926" height="816" decoding="async" fetchpriority="high"
+             alt="An AI voice agent and a caller facing each other mid-conversation, with speech bubbles showing their exchange">
+      </div>    </section>
+
+    <!-- ============ Intro ============ -->
+    <section class="ib-light ib-intro" aria-labelledby="ib-intro-title">
+      <div class="container">
+        <span class="ib-kicker">Inbound Calling</span>
+        <h2 class="ib-intro__title" id="ib-intro-title">
+          <span class="ib-line"><span class="ib-line__in">Every call answered.</span></span>
+          <span class="ib-line"><span class="ib-line__in">Every caller <mark class="ib-mark">moved forward.</mark></span></span>
+        </h2>
+        <p class="ib-intro__lead">Inbound Calling is Telza's voice AI for the calls your customers make to you. It starts from your existing scripts, business rules and workflows, adapted for AI so it can respond to different answers and situations instead of reading a fixed script line by line.</p>
+        <ul class="ib-chips" aria-label="What the inbound agent does">
+          <li><svg class="icon"><use href="#i-phone-in"/></svg>Answers incoming calls</li>
+          <li><svg class="icon"><use href="#i-chat"/></svg>Responds to inquiries</li>
+          <li><svg class="icon"><use href="#i-layers"/></svg>Collects caller information</li>
+          <li><svg class="icon"><use href="#i-check"/></svg>Completes configured workflows</li>
+          <li><svg class="icon"><use href="#i-users"/></svg>Transfers to your team</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Why: what happens to inbound calls without Telza ============ -->
+    <section class="ib-why" aria-labelledby="ib-why-title">
+      <div class="container ib-why__grid">
+        <div class="ib-phone" aria-hidden="true">
+          <span class="ib-phone__notch"></span>
+          <span class="ib-phone__label">Your business line</span>
+          <div class="ib-note" data-ib-note>
+            <span class="ib-note__ic"><svg class="icon"><use href="#i-phone-in"/></svg></span>
+            <span class="ib-note__txt ib-note__before"><b>Missed call</b><small>Came in after hours</small></span>
+            <span class="ib-note__txt ib-note__after"><b>Answered by Telza</b><small>Picked up straight away</small></span>
+          </div>
+          <div class="ib-note" data-ib-note>
+            <span class="ib-note__ic"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span class="ib-note__txt ib-note__before"><b>Caller on hold</b><small>Team busy on another call</small></span>
+            <span class="ib-note__txt ib-note__after"><b>Question answered</b><small>Supported inquiry handled on the call</small></span>
+          </div>
+          <div class="ib-note" data-ib-note>
+            <span class="ib-note__ic"><svg class="icon"><use href="#i-layers"/></svg></span>
+            <span class="ib-note__txt ib-note__before"><b>Details unclear</b><small>Notes from the call are incomplete</small></span>
+            <span class="ib-note__txt ib-note__after"><b>Details captured</b><small>Collected during the call</small></span>
+          </div>
+        </div>
+        <div class="ib-why__copy">
+          <span class="ib-kicker">Why it matters</span>
+          <h2 class="ib-h2" id="ib-why-title">An unanswered call is a customer left waiting</h2>
+          <ol class="ib-why__list">
+            <li data-ib-why><span class="ib-why__num">01</span><div><h3>Calls arrive when nobody is free</h3><p>Busy lines, breaks and after-hours calls leave customers without an answer. Telza picks up whenever the phone rings.</p></div></li>
+            <li data-ib-why><span class="ib-why__num">02</span><div><h3>The same questions, again and again</h3><p>Routine inquiries pull your team away from work that needs them. Telza responds to the inquiries it is set up to handle.</p></div></li>
+            <li data-ib-why><span class="ib-why__num">03</span><div><h3>Details get lost between calls</h3><p>Callers repeat themselves and notes end up incomplete. Telza collects the information your process needs during the call.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Features ============ -->
+    <section class="ib-light ib-features" id="features" aria-labelledby="ib-features-title">
+      <div class="container">
+        <div class="ib-head ib-head--center">
+          <span class="ib-kicker">Inside Inbound Calling</span>
+          <h2 class="ib-h2" id="ib-features-title">What your inbound agent does on every call</h2>
+        </div>
+        <div class="ib-features__grid">
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--ring" aria-hidden="true"><span class="ib-vis__phone"><svg class="icon"><use href="#i-phone-in"/></svg></span><i></i><i></i><i></i></div>
+            <h3>Answers incoming calls</h3><p>Calls to your number are picked up by Telza, so customers reach someone who can help.</p>
+          </article>
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--chat" aria-hidden="true"><span class="is-q">Is my order on its way?</span><span class="is-a">Yes, it's out for delivery.</span></div>
+            <h3>Responds to customer inquiries</h3><p>Questions your business has set Telza up to handle are answered during the call.</p>
+          </article>
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--form" aria-hidden="true"><span><b>Name</b><i style="--w:70%"></i></span><span><b>Reference</b><i style="--w:52%"></i></span><span><b>Reason</b><i style="--w:84%"></i></span></div>
+            <h3>Collects caller information</h3><p>Names, reference numbers and the other details your process needs are captured as the caller speaks.</p>
+          </article>
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--flow" aria-hidden="true"><span>Check request</span><span>Book a slot</span><span>Update the record</span></div>
+            <h3>Completes configured workflows</h3><p>Steps you configure, such as booking a slot or updating a record, are carried out during the conversation.</p>
+          </article>
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--route" aria-hidden="true">
+              <svg viewBox="0 0 220 110"><path d="M20 55H80C100 55 104 24 128 24H200M80 55C100 55 104 86 128 86H200"/></svg>
+              <span class="is-in">Call</span><span class="is-a">Sales</span><span class="is-b">Support</span>
+            </div>
+            <h3>Routes and transfers calls</h3><p>When a call needs a person, Telza sends it on to the right part of your team.</p>
+          </article>
+          <article class="ib-feature">
+            <div class="ib-vis ib-vis--script" aria-hidden="true"><span class="is-line"></span><span class="is-line is-short"></span><span class="is-branch">Different answer</span><span class="is-branch">New condition</span><span class="is-branch">Objection</span></div>
+            <h3>Built on your scripts and rules</h3><p>Existing scripts, qualification criteria and business rules are adapted so the agent responds to different answers, conditions and objections.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Call journey (pinned on desktop) ============ -->
+    <section class="ib-journey" id="journey" aria-labelledby="ib-journey-title">
+      <div class="ib-journey__stage">
+        <div class="container ib-journey__grid">
+          <div class="ib-journey__copy">
+            <span class="ib-kicker">The call journey</span>
+            <h2 class="ib-h2" id="ib-journey-title">What happens when a customer calls</h2>
+            <ol class="ib-steps">
+              <li class="ib-step" data-ib-step><span class="ib-step__num">01</span><div><h3>The phone rings</h3><p>Telza answers the incoming call straight away, around the clock.</p></div></li>
+              <li class="ib-step" data-ib-step><span class="ib-step__num">02</span><div><h3>The caller is heard</h3><p>Customers explain what they need in their own words, and Telza responds to what they actually say.</p></div></li>
+              <li class="ib-step" data-ib-step><span class="ib-step__num">03</span><div><h3>Details are collected</h3><p>Telza asks for the information your process needs and captures it during the call.</p></div></li>
+              <li class="ib-step" data-ib-step><span class="ib-step__num">04</span><div><h3>The request is handled</h3><p>Supported inquiries are answered and configured workflows are completed while the caller is still on the line.</p></div></li>
+              <li class="ib-step" data-ib-step><span class="ib-step__num">05</span><div><h3>Resolved, or handed to your team</h3><p>When a person should take over, Telza transfers the call to your team.</p></div></li>
+            </ol>
+          </div>
+
+          <div class="ib-call" aria-hidden="true">
+            <div class="ib-call__head">
+              <span class="ib-call__avatar"><svg class="icon"><use href="#i-phone-in"/></svg></span>
+              <div class="ib-call__who"><b>Incoming call</b><small data-ib-status>Transferred to your team</small></div>
+              <span class="ib-call__timer" data-ib-timer>01:05</span>
+            </div>
+            <div class="ib-call__wave"><div class="ib-bars ib-bars--live" data-ib-bars="46"></div></div>
+            <ul class="ib-call__log">
+              <li class="ib-msg ib-msg--ai" data-ib-msg="2">Hi, thanks for calling. How can I help today?</li>
+              <li class="ib-msg ib-msg--caller" data-ib-msg="2">Hi, I have a question about my order.</li>
+              <li class="ib-msg ib-msg--ai" data-ib-msg="3">Happy to help. Could I take your name and order number?</li>
+              <li class="ib-msg ib-msg--caller" data-ib-msg="3">Sam Carter, order 4182.</li>
+              <li class="ib-msg ib-msg--ai" data-ib-msg="4">Thanks, Sam. I've noted that, and your delivery question is answered.</li>
+              <li class="ib-msg ib-msg--caller" data-ib-msg="5">Great. I'd also like to talk about changing my plan.</li>
+              <li class="ib-msg ib-msg--ai" data-ib-msg="5">That's one for our team. I'm transferring you now.</li>
+              <li class="ib-msg ib-msg--event" data-ib-msg="5"><svg class="icon"><use href="#i-users"/></svg>Transferred to your team</li>
+            </ul>
+            <span class="ib-call__note">Illustrative call</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Benefits ============ -->
+    <section class="ib-benefits" aria-labelledby="ib-benefits-title">
+      <div class="container">
+        <div class="ib-head">
+          <span class="ib-kicker">The benefits</span>
+          <h2 class="ib-h2" id="ib-benefits-title">Fewer missed calls. Less repetitive work.</h2>
+        </div>
+        <div class="ib-benefits__grid">
+          <article class="ib-benefit"><span class="ib-benefit__ic"><svg class="icon"><use href="#i-clock"/></svg></span><h3>No caller left waiting</h3><p>Telza picks up when the phone rings, including the hours your team is not on the phones.</p></article>
+          <article class="ib-benefit"><span class="ib-benefit__ic"><svg class="icon"><use href="#i-layers"/></svg></span><h3>Details captured on the call</h3><p>Caller information is collected during the conversation, so your team does not start from scratch.</p></article>
+          <article class="ib-benefit"><span class="ib-benefit__ic"><svg class="icon"><use href="#i-sliders"/></svg></span><h3>Your rules, not a rigid script</h3><p>Your scripts, criteria and business rules are the starting point, adapted so the agent can handle different answers and conditions.</p></article>
+          <article class="ib-benefit"><span class="ib-benefit__ic"><svg class="icon"><use href="#i-users"/></svg></span><h3>People where people matter</h3><p>Calls that need a person are transferred to your team, so their time goes to the conversations that need them.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AI + your team ============ -->
+    <section class="ib-handoff" aria-labelledby="ib-handoff-title">
+      <div class="container">
+        <div class="ib-head ib-head--center">
+          <span class="ib-kicker">AI and your team</span>
+          <h2 class="ib-h2" id="ib-handoff-title">Telza handles the routine. <mark class="ib-mark">Your team takes the rest.</mark></h2>
+        </div>
+        <div class="ib-relay">
+          <div class="ib-lane ib-lane--ai">
+            <div class="ib-lane__head"><span class="ib-lane__mark"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>Telza AI</b></div>
+            <ul>
+              <li>Answers the call</li>
+              <li>Collects caller information</li>
+              <li>Responds to supported inquiries</li>
+              <li>Completes configured workflows</li>
+            </ul>
+          </div>
+          <div class="ib-relay__track" aria-hidden="true">
+            <span class="ib-relay__line"></span>
+            <span class="ib-relay__token" data-ib-token><svg class="icon"><use href="#i-phone-in"/></svg></span>
+            <span class="ib-relay__label">Transfer when a person is needed</span>
+          </div>
+          <div class="ib-lane ib-lane--team">
+            <div class="ib-lane__head"><span class="ib-lane__mark ib-lane__mark--team"><svg class="icon"><use href="#i-users"/></svg></span><b>Your team</b></div>
+            <ul>
+              <li>Takes over calls that need a person</li>
+              <li>Handles requests outside what Telza is set up for</li>
+              <li>Spends time where a person makes the difference</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Use cases (interactive tabs) ============ -->
+    <section class="ib-light ib-uses" aria-labelledby="ib-uses-title">
+      <div class="container">
+        <div class="ib-head ib-head--center">
+          <span class="ib-kicker">Use cases</span>
+          <h2 class="ib-h2" id="ib-uses-title">The calls Telza is built to take</h2>
+        </div>
+        <div class="ib-uses__box" data-ib-uses>
+          <div class="ib-uses__tabs" role="tablist" aria-label="Inbound calling use cases">
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-1" aria-controls="ib-use-1" aria-selected="true" tabindex="0"><svg class="icon"><use href="#i-chat"/></svg>Questions &amp; FAQs</button>
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-2" aria-controls="ib-use-2" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-calendar"/></svg>Appointment requests</button>
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-3" aria-controls="ib-use-3" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-spark"/></svg>New enquiries</button>
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-4" aria-controls="ib-use-4" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-cart"/></svg>Order &amp; account questions</button>
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-5" aria-controls="ib-use-5" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-clock"/></svg>After-hours calls</button>
+              <button type="button" class="ib-utab" role="tab" id="ib-utab-6" aria-controls="ib-use-6" aria-selected="false" tabindex="-1"><svg class="icon"><use href="#i-users"/></svg>Calls for a specialist</button>
+          </div>
+          <div class="ib-uses__panels">
+            <article class="ib-use" role="tabpanel" id="ib-use-1" aria-labelledby="ib-utab-1">
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;What time are you open on Saturday?&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Understands what the caller is asking</li>
+                <li><span>Then</span>Answers from the information your business set it up with</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Answered during the call</div>
+            </article>
+            <article class="ib-use" role="tabpanel" id="ib-use-2" aria-labelledby="ib-utab-2" hidden>
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;I&rsquo;d like to book an appointment for next week.&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Collects the name, preferred time and reason for the visit</li>
+                <li><span>Then</span>Books the slot when that workflow is configured, or passes the request to your team</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Request handled or handed over</div>
+            </article>
+            <article class="ib-use" role="tabpanel" id="ib-use-3" aria-labelledby="ib-utab-3" hidden>
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;I&rsquo;m interested in your services. Can someone tell me more?&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Asks your qualifying questions</li>
+                <li><span>Then</span>Records the answers so your team has the full enquiry</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Enquiry details captured</div>
+            </article>
+            <article class="ib-use" role="tabpanel" id="ib-use-4" aria-labelledby="ib-utab-4" hidden>
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;I&rsquo;m calling about my order.&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Collects the order or account reference</li>
+                <li><span>Then</span>Responds to supported questions, or routes the call to your team</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Answered or routed</div>
+            </article>
+            <article class="ib-use" role="tabpanel" id="ib-use-5" aria-labelledby="ib-utab-5" hidden>
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;Hi, is anyone there? I know it&rsquo;s late.&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Answers outside your team&rsquo;s hours</li>
+                <li><span>Then</span>Collects what your team needs to follow up</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Ready for your team</div>
+            </article>
+            <article class="ib-use" role="tabpanel" id="ib-use-6" aria-labelledby="ib-utab-6" hidden>
+              <div class="ib-use__caller"><span class="ib-use__who">Caller</span><p>&ldquo;I need to talk to someone about a complaint.&rdquo;</p><span class="ib-bars ib-use__bars" data-ib-bars="22" aria-hidden="true"></span></div>
+              <ol class="ib-use__flow">
+                <li><span>Telza</span>Recognises that the call needs a person</li>
+                <li><span>Then</span>Transfers the call to the right part of your team</li>
+              </ol>
+              <div class="ib-use__out"><svg class="icon"><use href="#i-check"/></svg>Transferred to your team</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============ Integrations (supported platforms only) ============ -->
+    <section class="ib-integrations" aria-labelledby="ib-int-title">
+      <div class="container ib-int__grid">
+        <div class="ib-int__copy">
+          <span class="ib-kicker">Integrations</span>
+          <h2 class="ib-h2" id="ib-int-title">Connects to the telephony and systems you already use</h2>
+          <p class="ib-int__lead">Telza can connect with supported CRMs, dialers, calendars, APIs and other business systems, depending on your workflow.</p>
+          <p class="ib-int__note">Using something else? We'll review the integration requirements with you during the demo.</p>
+        </div>
+        <div class="ib-orbit" aria-label="Supported platforms">
+          <span class="ib-orbit__ring" aria-hidden="true"></span><span class="ib-orbit__ring ib-orbit__ring--2" aria-hidden="true"></span>
+          <span class="ib-orbit__core" aria-hidden="true"><img src="assets/telza-icon-96.png" alt="" width="96" height="96" loading="lazy" decoding="async"></span>
+          <ul class="ib-orbit__nodes">
+            <li style="--i:0">VICIdial</li><li style="--i:1">Telnyx</li><li style="--i:2">Vonage</li><li style="--i:3">Signalwire</li><li style="--i:4">Bitrix</li><li style="--i:5">Zapier</li><li style="--i:6">Twilio</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (answers as published on the Telza homepage) ============ -->
+    <section class="section ib-faq" id="faq">
+      <div class="container faq">
+        <div class="section-head section-head--left reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title">Questions about Inbound Calling</h2>
+          <p class="section-lead">Something else on your mind? <a href="#cta" class="link">Talk to our team</a>.</p>
+        </div>
+        <div class="accordion accordion--rich reveal" data-delay="1" data-accordion>
+          <div class="acc-item is-open">
+            <button type="button" class="acc-trigger" aria-expanded="true" aria-controls="ibfaq-1" id="ibfaq-1-btn">Does Telza AI support both inbound and outbound calls?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ibfaq-1" role="region" aria-labelledby="ibfaq-1-btn"><div>
+              <p>Yes.</p>
+              <p><strong>Outbound AI agents</strong> can contact prospects, follow campaign logic, qualify leads, handle common objections, and route appropriate conversations to your team.</p>
+              <p><strong>Inbound AI agents</strong> can answer callers, collect information, respond to supported inquiries, complete configured workflows, and transfer the conversation when a human is needed.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ibfaq-2" id="ibfaq-2-btn">Can Telza work with the systems we already use?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ibfaq-2" role="region" aria-labelledby="ibfaq-2-btn"><div>
+              <p>Telza can connect with supported CRMs, dialers, calendars, APIs, and other business systems depending on the product and workflow.</p>
+              <p>Supported platforms:<br><strong>VICIdial</strong> · <strong>Telnyx</strong> · <strong>Vonage</strong> · <strong>Signalwire</strong> · <strong>Bitrix</strong> · <strong>Zapier</strong> · <strong>Twilio</strong></p>
+              <p>If your system is not already supported, we can review the integration requirements during the demo.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ibfaq-3" id="ibfaq-3-btn">Do we need to change our existing scripts and processes?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ibfaq-3" role="region" aria-labelledby="ibfaq-3-btn"><div>
+              <p>Not necessarily.</p>
+              <p>Your existing scripts, qualification criteria, business rules, and workflows can be used as the starting point.</p>
+              <p>We then adapt them for AI so the agent can respond to different answers, conditions, objections, and actions instead of simply reading a fixed script line by line.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ibfaq-4" id="ibfaq-4-btn">How long does it take to get started?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ibfaq-4" role="region" aria-labelledby="ibfaq-4-btn"><div>
+              <p>Implementation depends on the product, workflow complexity, integrations, campaign logic, and testing required.</p>
+              <p>During the initial review, we map the workflow first and then give you a realistic implementation plan based on your setup.</p>
+            </div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-trigger" aria-expanded="false" aria-controls="ibfaq-5" id="ibfaq-5-btn">Can we see Telza AI working before we buy?<span class="acc-icon"><svg class="icon icon--sm"><use href="#i-plus"/></svg></span></button>
+            <div class="acc-panel" id="ibfaq-5" role="region" aria-labelledby="ibfaq-5-btn"><div>
+              <p>Yes.</p>
+              <p>You can request a demo based on the product or workflow you are interested in, including <strong>Voice AI</strong>, <strong>Fillo</strong>, <strong>WhatsApp Automation</strong>, and <strong>E-commerce AI</strong>.</p>
+              <p>For Voice AI, we can also provide relevant call examples so you can hear how Telza handles real conversation scenarios.</p>
+              <p class="acc-cta"><a href="#cta" class="btn btn--primary btn--sm">Request a Demo <svg class="icon"><use href="#i-arrow"/></svg></a></p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA (same component as the homepage's "Get started" CTA; Inbound copy) ============ -->
+    <section class="section section--cta" id="cta">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__grid" aria-hidden="true"></div>
+          <span class="eyebrow">Get started with Inbound Calling</span>
+          <h2>Let Telza pick up your next call</h2>
+          <p>Book a walkthrough and we'll show you how Telza answers, helps and transfers callers using your own workflow, with call examples you can hear.</p>
+          <form class="cta-form" action="book.html" method="get">
+            <label class="sr-only" for="cta-email">Work email</label>
+            <input type="email" id="cta-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <button type="submit" class="btn btn--primary">Book a demo <svg class="icon"><use href="#i-arrow"/></svg></button>
+          <input type="hidden" name="interest" value="Voice Agent (inbound)"></form>
+          <p class="form-msg" id="cta-msg" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+ <div class="footer-brand"><a class="brand" href="index.html" aria-label="Telza home"><span class="logo-crop"><img class="telza-brand-asset" src="assets/telza-logo.png" alt="Telza AI"></span></a><p>Intelligence. Simplified.<br>AI agents and the software around them.</p></div>
+ <nav class="footer-col" aria-label="Products"><h3>Products</h3><a href="index.html#voice">Voice Agent</a><a href="index.html#fillo">Fillo AI</a><a href="index.html#whatsapp">WhatsApp Bot</a><a href="index.html#commerce">E-commerce AI</a><a href="index.html#custom">Custom AI</a></nav>
+ <nav class="footer-col" aria-label="Company"><h3>Company</h3><a href="index.html#services">Services</a><a href="index.html#approach">Our approach</a><a href="demo.html">Live demo</a><a href="book.html">Book a meeting</a></nav>
+ <div class="footer-col"><h3>Contact</h3><a href="mailto:info@telza.ai">info@telza.ai</a><a href="tel:+14016783367">+1 (401) 678-3367</a><a href="https://wa.me/14016783367" target="_blank" rel="noopener">WhatsApp us ↗</a></div>
+ <div class="footer-bottom"><span>© <span data-year>2026</span> Telza AI. All rights reserved.</span><span>Intelligence. Simplified.</span><a href="#main">Back to top ↑</a></div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/14016783367?text=Hi%20Telza%2C%20I%27d%20like%20to%20know%20more%20about%20Inbound%20Call." target="_blank" rel="noopener" aria-label="Chat with Telza on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Chat on WhatsApp</span></a>
+
+</body>
+</html>

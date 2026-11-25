@@ -1,0 +1,241 @@
+/* Voice Agent and WhatsApp Bot scroll stories. Same navy art direction as Fillo. */
+.story{--cyan:#14c9b8;--blue:#5eff31;--success:#66e6a1;position:relative;scroll-margin-top:0}
+#voice.story{height:640svh;background:radial-gradient(ellipse at 74% 52%,#1a2728 0,transparent 62%)}
+#whatsapp.story{height:600svh;background:radial-gradient(ellipse at 74% 52%,#151f20 0,transparent 62%)}
+.story .story-scene{height:100svh;position:sticky;top:0;overflow:hidden}
+.story-watermark{position:absolute;left:-1%;bottom:-5%;font-size:23vw;font-weight:600;letter-spacing:-.09em;line-height:1;color:#2dd10007;pointer-events:none;user-select:none;white-space:nowrap}
+.story .story-layout{position:absolute;inset:112px 6.5% 118px;display:grid;grid-template-columns:.9fr 1.15fr;gap:4.5%;align-items:center;max-width:1550px;margin-inline:auto}
+.story .narrative{position:relative;z-index:8;min-width:0}
+.story .product-eyebrow{margin:0 0 30px;display:flex;align-items:center;gap:14px}
+.story .product-eyebrow strong{font-size:16px;letter-spacing:.16em;font-weight:550;color:#67ff3d;white-space:nowrap}
+.story .product-eyebrow span{border-left:1px solid #1cc7b647;padding-left:14px;font-size:10px;color:#aab2b2;line-height:1.5;letter-spacing:.06em}
+.story .copy-stack{display:grid}
+.story .story-step{grid-area:1/1;align-self:start;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .55s ease;pointer-events:none}
+.story .story-step[data-active=true]{opacity:1;transform:none;pointer-events:auto}
+.story .story-step h2{font-size:clamp(36px,3.9vw,62px);font-weight:450;line-height:1.08;letter-spacing:-.055em}
+.story-description{max-width:410px;font-size:16px;line-height:1.75;color:#aeb5b5;margin-top:24px!important}
+.story-tags{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.story-tags li{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#45e4d5;border:1px solid #1ed3c133;border-radius:20px;padding:6px 11px}
+.story-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:34px}
+.story-controls .text-button{padding:10px 0}
+.story .mode-switch button{font-size:12px;padding:9px 15px;transition:background .25s,color .25s}
+.story-ticks{list-style:none;padding:0;margin:30px 0 0;display:flex;gap:6px;max-width:460px}
+.story-ticks li{flex:1;min-width:0}
+.story-ticks button{width:100%;background:none;padding:10px 0 4px;border-top:2px solid #32e8002e;text-align:left;font-size:11px;color:#869191;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s,border-color .3s}
+.story-ticks button.past{border-color:#39ff1480;color:#b3baba}
+.story-ticks button.current{border-color:var(--cyan);color:#ecefef}
+.story-ticks button:hover{color:var(--cyan)}
+.story .experience{min-width:0;height:100%;max-height:640px;display:flex;flex-direction:column;align-self:center}
+.story .experience-heading{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #58ff2a20;padding-bottom:14px;font-size:10px;letter-spacing:.14em;color:#b6bdbd}
+.story .experience-heading span:last-child{font-size:9px;color:#798585;letter-spacing:.08em;white-space:nowrap}
+.story .visual-slot{position:relative;flex:1;min-height:0}
+.story .artboard{position:absolute;left:50%;top:50%;width:600px;height:500px;transform:translate(-50%,-50%) scale(var(--art-scale,1));transform-origin:center}
+.story .visual-caption{font-size:12px;color:#949f9f;line-height:1.5;min-height:18px;padding-top:12px}
+.story[data-mode=outbound] [data-mode=inbound],.story[data-mode=inbound] [data-mode=outbound]{display:none!important}
+
+/* The chapter's sphere docks in these sockets as the story advances. */
+.story .dock{position:absolute;left:17px;width:56px;height:56px;border-radius:50%;border:1px dashed #1cc7b630;pointer-events:none;transition:border-color .4s}
+.story .dock.current{border-color:transparent}
+.story .dock-rail{position:absolute;left:44.5px;width:1px;background:linear-gradient(#1cc7b600,#1cc7b630 12%,#1cc7b630 88%,#1cc7b600)}
+.no-webgl .story .dock.current,.story .dock.current.fallback{background:radial-gradient(circle at 30% 25%,#60ff33,#1b7c00 58%,#222d2e);border:0}
+
+/* Shared panels */
+.story .panel{position:absolute;border:1px solid #60ff342e;border-radius:12px;background:linear-gradient(135deg,#192324,#11191a 85%);box-shadow:0 20px 50px #00000033;overflow:hidden}
+.story .panel-head{display:flex;justify-content:space-between;align-items:center;height:38px;padding:0 16px;border-bottom:1px solid #66ff3b1f;font-size:10px;letter-spacing:.14em;color:#99a3a3}
+
+/* Voice Agent: call console */
+#voice .call-card{left:90px;top:8px;width:510px;height:88px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 20px}
+#voice .call-who small{display:block;font-size:10px;letter-spacing:.14em;color:#9aa4a4}
+#voice .call-who strong{display:block;font-size:22px;font-weight:450;letter-spacing:-.03em;color:#f0f2f2;line-height:1.3}
+#voice .call-who>span{font-size:13px;color:#9ea7a7}
+#voice .call-state{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+#voice .call-state b{font-weight:500;font-size:13px;color:#d9dddd;border:1px solid #1dc9b83d;border-radius:20px;padding:4px 12px;background:#23303233;white-space:nowrap;transition:color .4s,background .4s,border-color .4s}
+#voice[data-stage="5"] .call-state b{color:var(--success);border-color:#66e6a155;background:#181f1f}
+#voice .call-bars{display:flex;gap:3px;align-items:center;height:22px}
+#voice .call-bars i{width:3px;height:5px;border-radius:2px;background:#14c9b8;opacity:.3}
+#voice:is([data-stage="1"],[data-stage="2"],[data-stage="3"],[data-stage="4"]) .call-bars i{opacity:1;animation:call-bar 1.1s ease-in-out infinite}
+#voice .call-bars i:nth-child(2){animation-delay:-.25s}
+#voice .call-bars i:nth-child(3){animation-delay:-.5s}
+#voice .call-bars i:nth-child(4){animation-delay:-.15s}
+#voice .call-bars i:nth-child(5){animation-delay:-.65s}
+#voice .call-bars i:nth-child(6){animation-delay:-.4s}
+#voice .call-bars i:nth-child(7){animation-delay:-.8s}
+@keyframes call-bar{0%,100%{height:5px}50%{height:21px}}
+
+#voice .transcript{left:90px;top:112px;width:300px;height:268px}
+#voice .rec{color:#ff8f8f;letter-spacing:.1em}
+#voice .lines{position:absolute;inset:38px 0 0;display:grid;padding:14px}
+#voice .exchange{grid-area:1/1;align-self:start;display:grid;gap:10px;opacity:0;transform:translateY(10px);transition:opacity .35s,transform .45s}
+#voice .exchange.on{opacity:1;transform:none}
+#voice .line{margin:0;font-size:14.5px;line-height:1.42;color:#e4e7e7;padding:9px 12px;border-radius:10px;border-top-left-radius:3px;background:#223031;max-width:93%;justify-self:start}
+#voice .line b{display:block;font-size:9px;letter-spacing:.14em;color:#1fdbc8;font-weight:550;margin-bottom:2px}
+#voice .line.caller{justify-self:end;background:#151f20;border:1px solid #4cff1a24;color:#cbd0d0;border-radius:10px;border-top-right-radius:3px}
+#voice .line.caller b{color:#a3abab}
+#voice .line.system{background:none;padding:0;border-radius:0;color:#a8b1b1;font-size:13px;max-width:none}
+#voice .line.soft{color:#758181;font-size:12px}
+#voice .exchange.on .line{animation:line-in .5s both}
+#voice .exchange.on .line:nth-child(2){animation-delay:.75s}
+#voice .exchange.on .line:nth-child(3){animation-delay:1.5s}
+@keyframes line-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+#voice .checks{left:406px;top:112px;width:194px;height:268px}
+#voice .checks ul{list-style:none;margin:0;padding:14px 16px;display:grid;gap:14px}
+#voice .checks li{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.35;color:#727f7f;transition:color .4s}
+#voice .checks li i{flex:none;width:16px;height:16px;border-radius:50%;border:1px solid #32e80055;margin-top:1px;position:relative;transition:background .4s,border-color .4s}
+#voice .checks li.on{color:#e4e7e7}
+#voice .checks li.on i{background:var(--success);border-color:var(--success)}
+#voice .checks li.on i:after{content:'';position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid #0a0e0f;border-width:0 2px 2px 0;rotate:45deg}
+
+#voice .bridge{position:absolute;left:90px;top:396px;width:510px;height:62px;display:flex;align-items:center;gap:14px}
+#voice .bridge-from{font-size:10px;letter-spacing:.14em;color:#99a3a3;white-space:nowrap}
+#voice .bridge-line{flex:1;height:10px;overflow:visible}
+#voice .bridge-line path{fill:none;stroke:#32e80045;stroke-width:1.5;stroke-dasharray:4 5;vector-effect:non-scaling-stroke}
+#voice .bridge-line path.live{stroke:#14c9b8;stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s ease;filter:drop-shadow(0 0 4px #14c9b8)}
+#voice[data-stage="5"] .bridge-line path.live{stroke-dashoffset:0}
+#voice .bridge-to{border:1px solid #60ff342e;border-radius:10px;padding:8px 14px;background:#131c1c;min-width:220px;transition:border-color .5s,background .5s}
+#voice .bridge-to small{display:block;font-size:9px;letter-spacing:.14em;color:#99a3a3}
+#voice .bridge-to strong{display:block;font-size:15px;font-weight:500;color:#e8ebeb;line-height:1.35}
+#voice .bridge-state{display:block;font-size:11px;color:#99a3a3;transition:color .4s}
+#voice[data-stage="5"] .bridge-to{border-color:#66e6a166;background:#161c1d}
+#voice[data-stage="5"] .bridge-state{color:var(--success)}
+#voice .dispositions{position:absolute;left:90px;top:470px;width:510px;display:flex;gap:8px;list-style:none;margin:0;padding:0}
+#voice .dispositions li{flex:1;text-align:center;font-size:11px;letter-spacing:.12em;padding:5px 0;border-radius:6px;border:1px solid #32e8002e;color:#727f7f;transition:color .4s,background .4s,border-color .4s}
+#voice .dispositions li.on{color:#0a0e0f;background:var(--success);border-color:var(--success);font-weight:650}
+
+/* WhatsApp Bot: events and the chat */
+#whatsapp .event{position:absolute;left:90px;width:220px;height:66px;padding:10px 14px;border-radius:10px;border:1px solid #60ff341f;background:#131b1c;opacity:.28;transition:opacity .4s,border-color .4s,background .4s,transform .4s}
+#whatsapp .event small{display:block;font-size:9px;letter-spacing:.14em;color:#99a3a3}
+#whatsapp .event strong{display:block;font-size:15px;font-weight:500;color:#e8ebeb;line-height:1.35}
+#whatsapp .event span{display:block;font-size:11px;color:#9ea7a7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#whatsapp .event.on{opacity:.7}
+#whatsapp .event.now{opacity:1;border-color:#14c9b855;background:linear-gradient(120deg,#1e2b2c,#162020);transform:translateX(4px)}
+#whatsapp .event.now small{color:var(--cyan)}
+
+#whatsapp .phone{position:absolute;left:330px;top:0;width:270px;height:500px;border-radius:34px;border:1px solid #70ff483a;background:#0d1314;box-shadow:0 30px 70px #00000066,inset 0 0 0 6px #080c0c;overflow:hidden;display:flex;flex-direction:column}
+#whatsapp .phone-top{display:flex;align-items:center;gap:10px;padding:26px 16px 12px;background:#161f20;border-bottom:1px solid #66ff3b1a}
+#whatsapp .phone-avatar{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#14c9b8,#39ff14);color:#080c0d;font-weight:650;font-size:14px}
+#whatsapp .phone-top strong{display:block;font-size:14px;font-weight:550;color:#f1f2f2;line-height:1.2}
+#whatsapp .phone-top small{font-size:10px;color:#7fd3a5}
+#whatsapp .chat{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;padding:12px 11px;overflow:hidden;background:radial-gradient(circle at 20% 30%,#14c9b808 0 2px,transparent 3px) 0 0/26px 26px,#0f1516}
+#whatsapp .chat>[data-from]{display:none;margin:0}
+#whatsapp .chat>[data-from].on{display:block}
+#whatsapp .chat>.typing.on{display:flex}
+#whatsapp .chat>[data-from].now{animation:msg-in .45s both;animation-delay:calc(var(--d,0)*.6s)}
+@keyframes msg-in{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+#whatsapp .msg{max-width:86%;font-size:12.5px;line-height:1.4;padding:7px 10px 5px;border-radius:10px;color:#edefef;flex:none}
+#whatsapp .msg.in{align-self:flex-start;background:#1d2627;border-top-left-radius:3px}
+#whatsapp .msg.out{align-self:flex-end;background:#243739;border-top-right-radius:3px}
+#whatsapp .msg time{display:block;text-align:right;font-size:9px;color:#b5bcbc;margin-top:1px}
+#whatsapp .msg.out time:after{content:' ✓✓';color:#14c9b8;letter-spacing:-.15em}
+#whatsapp .msg .options{display:grid;margin:7px -10px 0;border-top:1px solid #66ff3b26}
+#whatsapp .msg .options span{display:block;text-align:center;font-size:12px;color:#31e3d1;padding:6px;border-bottom:1px solid #66ff3b1a}
+#whatsapp .msg.booking{border:1px solid #66e6a155;background:linear-gradient(135deg,#1a2424,#182324)}
+#whatsapp .msg.booking b{display:block;color:var(--success);font-weight:600;margin-bottom:2px}
+#whatsapp .chat-chip{align-self:center;font-size:9px;letter-spacing:.12em;color:#a8b0b0;background:#172021;border-radius:6px;padding:4px 9px;flex:none}
+#whatsapp .chat-chip.handoff{letter-spacing:.02em;font-size:10px;color:#b8f3cf;background:#163428}
+#whatsapp .typing{align-self:flex-start;gap:4px;padding:10px 12px;border-radius:10px;background:#1d2627;flex:none}
+#whatsapp .typing i{width:6px;height:6px;border-radius:50%;background:#a8b0b0;animation:typing 1.2s infinite}
+#whatsapp .typing i:nth-child(2){animation-delay:.2s}
+#whatsapp .typing i:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+#whatsapp .phone-input{display:flex;align-items:center;gap:8px;padding:9px 11px 16px;background:#0f1516}
+#whatsapp .phone-input span{flex:1;height:32px;border-radius:16px;background:#172021;font-size:11px;color:#869191;display:flex;align-items:center;padding:0 12px}
+#whatsapp .phone-input i{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#14c9b8,#39ff14)}
+
+[data-motion-paused=true] .story .call-bars i,[data-motion-paused=true] .story .typing i{animation-play-state:paused}
+
+@media(min-width:1700px){.story .story-layout{grid-template-columns:1fr 1.12fr;gap:6%}}
+@media(min-width:761px) and (max-width:1100px){
+ .story .story-layout{inset:106px 5% 112px;grid-template-columns:.92fr 1.1fr;gap:3%}
+ .story .story-step h2{font-size:clamp(31px,4.1vw,44px)}
+ .story-description{font-size:14px;line-height:1.65}
+ .story-tags,.story-ticks{display:none}
+ .story-controls{margin-top:24px;gap:12px 18px}
+ .story .experience-heading{font-size:8px;letter-spacing:.08em}
+}
+@media(min-width:761px) and (max-height:700px){
+ .story-tags,.story-ticks{display:none}
+ .story .product-eyebrow{margin-bottom:18px}
+ .story-description{margin-top:16px!important;font-size:14px;line-height:1.6}
+ .story-controls{margin-top:20px}
+}
+@media(min-width:761px) and (max-height:560px){
+ .story .story-layout{inset:72px 5% 60px}
+ .story .story-step h2{font-size:30px}
+ .story .experience-heading,.story .visual-caption,.story .product-eyebrow{display:none}
+}
+@media(min-width:761px) and (max-width:1000px) and (orientation:portrait){
+ .story .story-layout{inset:104px 7% 120px;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:26px;align-items:stretch}
+ .story .story-step h2{font-size:42px}
+ .story .experience{max-height:none}
+}
+/* Parked spheres sit at 14% height from 81% width: keep the experience header below them on laptop heights. */
+@media(min-width:761px) and (min-height:561px) and (prefers-reduced-motion:no-preference){
+ .story .experience{padding-top:max(0px,calc(14.7vh - 96px - max(0px,(100vh - 870px)/2)))}
+}
+/* On phones they park from 70% width: wrap the eyebrow before it. */
+@media(max-width:760px) and (prefers-reduced-motion:no-preference){
+ .story .product-eyebrow{max-width:calc(70vw - 40px)}
+}
+@media(max-width:760px){
+ #voice.story{height:600svh}
+ #whatsapp.story{height:560svh}
+ .story-watermark{font-size:40vw;bottom:auto;top:40%}
+ .story .story-layout{inset:82px 20px 118px;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:14px;align-items:stretch}
+ .story .product-eyebrow{margin-bottom:12px;gap:10px}
+ .story .product-eyebrow strong{font-size:12px}
+ .story .product-eyebrow span{font-size:9px;padding-left:10px}
+ .story .story-step h2{font-size:clamp(27px,7.6vw,40px);line-height:1.1}
+ .story-description{font-size:14px;line-height:1.55;margin-top:10px!important}
+ .story-tags,.story-ticks,.story .visual-caption{display:none}
+ .story-controls{margin-top:12px;gap:6px 16px}
+ .story .mode-switch button{font-size:13px;min-height:44px;padding:8px 13px}
+ .story-controls .text-button{font-size:13px;min-height:44px}
+ .story-controls .button.small{min-height:44px;font-size:12px}
+ .story .experience{max-height:none;height:100%}
+ .story .experience-heading{font-size:8px;padding-bottom:8px;letter-spacing:.08em}
+ .story .experience-heading span:last-child{font-size:7px}
+ /* The artboard scales down: make its type larger and simpler. */
+ #voice .checks{display:none}
+ #voice .transcript{width:510px}
+ #voice .line{font-size:20px}
+ #voice .line b{font-size:12px}
+ #voice .line.system{font-size:18px}
+ #voice .call-who strong{font-size:26px}
+ #voice .call-who>span,#voice .call-who small{font-size:14px}
+ #voice .call-state b{font-size:16px}
+ #voice .bridge-from{display:none}
+ #voice .bridge-to strong{font-size:19px}
+ #voice .bridge-state{font-size:14px}
+ #voice .dispositions li{font-size:14px}
+ #whatsapp .event{width:225px}
+ #whatsapp .event small{display:none}
+ #whatsapp .event strong{font-size:18px}
+ #whatsapp .event span{font-size:14px}
+ #whatsapp .msg{font-size:15px}
+}
+@media(max-width:760px) and (max-height:700px){
+ .story .story-layout{inset:76px 18px 104px;gap:10px}
+ .story .story-step h2{font-size:26px}
+ .story-description{display:none}
+ .story .experience-heading{display:none}
+}
+
+/* Reduced motion: a complete reading layout, the final state of each console. */
+@media(prefers-reduced-motion:reduce){
+ #voice.story,#whatsapp.story{height:auto}
+ .story .story-scene{position:relative;height:auto;overflow:visible}
+ .story-watermark{display:none}
+ .story .story-layout{position:relative;inset:auto;display:block;padding:110px 7% 60px}
+ .story .copy-stack{gap:34px}
+ .story .story-step{grid-area:auto;opacity:1;transform:none}
+ .story .story-step h2{font-size:38px}
+ .story .experience{height:560px;margin-top:44px;max-height:none}
+ .story-ticks,.story .dock,.story .dock-rail{display:none}
+ .story *{animation:none!important;transition:none!important}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){
+ .story .story-layout{padding:90px 24px 40px}
+ .story .story-step h2{font-size:30px}
+ .story .experience{height:360px}
+}
